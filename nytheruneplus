@@ -4485,13 +4485,14 @@ local Section = Tab:AddSection({
     Name = "Lags Experimentais"
 })
 
-Tab:AddParagraph({"Info", "Se quiser interromper o Lag de respawn"})
-Tab1:AddButton({
-    "Lag com Ônibus",
-    function()
-        print("Script vindo em breve...") 
-})
+Tab:AddParagraph("Se quiser interromper o Lag de respawn")
 
+Tab1:AddButton({
+    Title = "Carregar Versão Experimental",
+    Callback = function()
+        print("Script vindo em breve...")
+    end
+})
 -- Lag Laptop Section
 local Section = Tab:AddSection({
     Name = "Lag com Laptop"
