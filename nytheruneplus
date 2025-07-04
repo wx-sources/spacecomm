@@ -4793,35 +4793,55 @@ local Section = Tab:AddSection({
     Name = "Lag com carro"
 })
 
-Tab:AddToggle({
-    Name = "Lag com carro",
+local lagAtivo = false
+local lagThread
+
+Tab1:AddToggle({
+    Name = "Lag com Ônibus",
     Default = false,
-    Callback = function(value)
-        if value then
-            print("Toggle ativado")
-runLag = true
-lagCoroutine = coroutine.wrap(function()
-    while runLag do
-        local success, err = pcall(function()
-            humanoidRootPart.CFrame = CFrame.new(1118.81, 75.998, -1138.61)
-            local bus = GetBus()
-            remoteEvent["1Ca1r"]:FireServer("PickingCar", "SchoolBus")
-        end)
+    Callback = function(state)
+        lagAtivo = state
 
-        if not success then
-            warn("Erro ao executar lag loop: " .. tostring(err))
-            runLag = false
-            break
-        end
+        if lagAtivo then
+            local Players = game:GetService("Players")
+            local ReplicatedStorage = game:GetService("ReplicatedStorage")
+            local LocalPlayer = Players.LocalPlayer
 
-        task.wait(0) -- Delay zerado — lag extremo intencional
-    end
-end)
-lagCoroutine()
-        else
-            print("Toggle desativado")
+            local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+            local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+            local function GetBus()
+                local vehicles = workspace:FindFirstChild("Vehicles")
+                if vehicles then
+                    return vehicles:FindFirstChild(LocalPlayer.Name .. "Car")
+                end
+                return nil
+            end
+
+            local remoteEvent = ReplicatedStorage:FindFirstChild("RE")
+            local subEvent = remoteEvent and remoteEvent:FindFirstChild("1Ca1r")
+
+            if not (remoteEvent and subEvent) then
+                warn("RE ou 1Ca1r não encontrados.")
+                return
+            end
+
+            lagThread = coroutine.create(function()
+                while lagAtivo do
+                    humanoidRootPart.CFrame = CFrame.new(1118.81, 75.998, -1138.61)
+                    subEvent:FireServer("PickingCar", "SchoolBus")
+                    task.wait(0) -- Delay zero para lag extremo
+                end
+            end)
+
+            coroutine.resume(lagThread)
         end
     end
+})
+
+Tab:AddParagraph({
+    "Informação de Lag",
+    "Normalmente esse script de ônibus n causa Lag em servers públicos, tente em um servidor privado!"
 })
 
 local Tab = Window:MakeTab({"Nomes", "Paper"})
