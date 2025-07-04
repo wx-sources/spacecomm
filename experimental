@@ -107,7 +107,7 @@ lagCoroutine()
 
 end})
 
-Tab:AddButton({"Reentrar no servidor", function()
+Tab1:AddButton({"Reentrar no servidor", function()
     local TeleportService = game:GetService("TeleportService")
     local Players = game:GetService("Players")
     local LocalPlayer = Players.LocalPlayer
