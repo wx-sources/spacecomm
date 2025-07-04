@@ -23,7 +23,7 @@ InfoTab:AddParagraph({ "Owner / Developer:", "Wx, Galaxy, Why" })
 InfoTab:AddParagraph({ "Colaborações:", "Lolyta, Dragon, Why, Galaxy, 7" })
 InfoTab:AddParagraph({ "Você está usando:", "Nytherune Hub" })
 InfoTab:AddParagraph({"This script is open-source, just check our GitHub page!"})
-InfoTab:AddParagraph({"Novidades:", "Lag com ônibus sendo testado na versão experimental abaixo."})
+InfoTab:AddParagraph({"Novidades:", "Lag com ônibus já está disponível!"})
 InfoTab:AddButton({"Versão Experimental", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/wx-sources/spacecomm/refs/heads/main/experimental"))()
 end})
@@ -4485,6 +4485,73 @@ local Tab = Window:MakeTab({"Lag Server", "bomb"})
 -- Shutdown Custom Section
 local Section = Tab:AddSection({
     Name = "Lags Experimentais"
+})
+
+local runLag = false
+local lagCoroutine
+
+Tab:AddToggle({
+    Name = "Lag com Ônibus",
+    Default = false,
+    Callback = function(Value)
+        runLag = Value
+
+        if runLag then
+            local Players = game:GetService("Players")  
+            local ReplicatedStorage = game:GetService("ReplicatedStorage")  
+            local LocalPlayer = Players.LocalPlayer  
+
+            if not LocalPlayer then  
+                warn("LocalPlayer não encontrado.")  
+                return  
+            end  
+
+            local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()  
+            local humanoidRootPart = character:WaitForChild("HumanoidRootPart", 5)  
+            if not humanoidRootPart then  
+                warn("HumanoidRootPart não encontrado.")  
+                return  
+            end  
+
+            local function GetBus()  
+                local vehicles = workspace:FindFirstChild("Vehicles")  
+                if vehicles then  
+                    return vehicles:FindFirstChild(LocalPlayer.Name .. "Car")  
+                end  
+                return nil  
+            end  
+
+            local remoteEvent = ReplicatedStorage:FindFirstChild("RE")  
+            if not remoteEvent then  
+                warn("RemoteEvent 'RE' não encontrado em ReplicatedStorage.")  
+                return  
+            end  
+
+            if not remoteEvent:FindFirstChild("1Ca1r") then  
+                warn("Evento filho '1Ca1r' não encontrado dentro de 'RE'.")  
+                return  
+            end  
+
+            lagCoroutine = coroutine.wrap(function()  
+                while runLag do  
+                    local success, err = pcall(function()  
+                        humanoidRootPart.CFrame = CFrame.new(1118.81, 75.998, -1138.61)  
+                        local bus = GetBus()  
+                        remoteEvent["1Ca1r"]:FireServer("PickingCar", "SchoolBus")  
+                    end)  
+
+                    if not success then  
+                        warn("Erro ao executar lag loop: " .. tostring(err))  
+                        runLag = false  
+                        break  
+                    end  
+
+                    task.wait(0)
+                end  
+            end)  
+            lagCoroutine()
+        end
+    end
 })
 
 -- Lag Laptop Section
