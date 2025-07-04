@@ -5,7 +5,7 @@ workspace.FallenPartsDestroyHeight = -math.huge
 
 local Window = Libary:MakeWindow({
     Title = "🌌 Nytherune Hub + 🌌 - Spacecomm Developers Brookhaven",
-    SubTitle = "by: Spacecomm Developers (Wx, 7, Why)",
+    SubTitle = "by: Spacecomm Developers (Wx, Galaxy, Why)",
     LoadText = "Spacecomm Developers",
     Flags = "nythrnHub_Broookhaven"
 })
@@ -19,10 +19,12 @@ local InfoTab = Window:MakeTab({ Title = "Info", Icon = "rbxassetid://1072341590
 
 
 InfoTab:AddSection({ "Informações do Script" })
-InfoTab:AddParagraph({ "Owner / Developer:", "Wx, 7, Why" })
-InfoTab:AddParagraph({ "Colaborações:", "Lolyta, Dragon, Why, 7" })
+InfoTab:AddParagraph({ "Owner / Developer:", "Wx, Galaxy, Why" })
+InfoTab:AddParagraph({ "Colaborações:", "Lolyta, Dragon, Why, Galaxy, 7" })
 InfoTab:AddParagraph({ "Você está usando:", "Nytherune Hub" })
 InfoTab:AddParagraph({"This script is open-source, just check our GitHub page!"})
+InfoTab:AddParagraph({"Novidades:", "+4 áudios novos na tab Audio All! (adicionado por Wx)"})
+
 
 InfoTab:AddSection({ "Rejoin" })
 InfoTab:AddButton({
@@ -4274,7 +4276,7 @@ local audios = {
     {Name = "John's Laugh", ID = 130759239},
     {Name = "Nao sei KKKK", ID = 6549021381},
     {Name = "Grito", ID = 80156405968805},
-    {Name = "Sus Audio", ID = 7705506391},
+    {Name = "audio estranho", ID = 7705506391},
     {Name = "AAAH", ID = 7772283448},
     {Name = "Gay, gay", ID = 18786647417},
     {Name = "Bat Hit", ID = 7129073354},
@@ -4282,7 +4284,7 @@ local audios = {
     {Name = "Sem ideia de nome KK", ID = 7520729342},
     {Name = "Grito 2", ID = 91412024101709},
     {Name = "Estora tímpano", ID = 268116333},
-    {Name = "Gemidão", ID = 106835463235574},
+    {Name = "[ Content Deleted ]", ID = 106835463235574},
     {Name = "Toma Jack", ID = 132603645477541},
     {Name = "Pede ifood pede", ID = 133843750864059},
     {Name = "I Ghost The down", ID = 84663543883498},
@@ -4290,6 +4292,10 @@ local audios = {
     {Name = "Uh Que Nojo", ID = 103440368630269},
     {Name = "Sai dai Lava Prato", ID = 101232400175829},
     {Name = "Seloko num compensa", ID = 78442476709262},
+    {Name = "(NEW) Chimpanzini Bananini Funk", ID = 137148228908678},
+    {Name = "(NEW) Candyland - Tobu", ID = 118939739460633},
+    {Name = "(NEW) Meme do Dom pollo What the hell", ID = 100656590080703},
+    {Name = "(NEW) não to entendendo nd meme estourado", ID = 7962533987},
 }
 
 local selectedAudioID
