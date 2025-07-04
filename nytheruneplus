@@ -23,8 +23,10 @@ InfoTab:AddParagraph({ "Owner / Developer:", "Wx, Galaxy, Why" })
 InfoTab:AddParagraph({ "Colaborações:", "Lolyta, Dragon, Why, Galaxy, 7" })
 InfoTab:AddParagraph({ "Você está usando:", "Nytherune Hub" })
 InfoTab:AddParagraph({"This script is open-source, just check our GitHub page!"})
-InfoTab:AddParagraph({"Novidades:", "Lag com ônibus sendo testado, experimental sera add na parte > Lag Server"})
-
+InfoTab:AddParagraph({"Novidades:", "Lag com ônibus sendo testado na versão experimental abaixo."})
+InfoTab:AddButton({"Versão Experimental", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/wx-sources/spacecomm/refs/heads/main/experimental"))()
+end})
 
 InfoTab:AddSection({ "Rejoin" })
 InfoTab:AddButton({
@@ -4485,14 +4487,6 @@ local Section = Tab:AddSection({
     Name = "Lags Experimentais"
 })
 
-Tab:AddParagraph("Se quiser interromper o Lag de respawn")
-
-Tab1:AddButton({
-    Title = "Carregar Versão Experimental",
-    Callback = function()
-        print("Script vindo em breve...")
-    end
-})
 -- Lag Laptop Section
 local Section = Tab:AddSection({
     Name = "Lag com Laptop"
