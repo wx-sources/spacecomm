@@ -46,7 +46,7 @@ MakeWindow({
 
 MinimizeButton({
 
-    Image = "rbxassetid://130563590371769",
+    Image = "rbxassetid://1120738435",
 
     Size = {50, 50},
 
@@ -58,7 +58,7 @@ MinimizeButton({
 
     Stroke = true,  -- Ativa a borda
 
-    StrokeColor = Color3.fromRGB(255, 0, 0)  -- Cor vermelha
+    StrokeColor = Color3.fromRGB(0, 0, 0)  -- Cor preta
 
 })
 
