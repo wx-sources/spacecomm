@@ -23,7 +23,7 @@ InfoTab:AddParagraph({ "Owner / Developer:", "Wx, Galaxy, Why" })
 InfoTab:AddParagraph({ "Colaborações:", "Lolyta, Dragon, Why, Galaxy, 7" })
 InfoTab:AddParagraph({ "Você está usando:", "Nytherune Hub" })
 InfoTab:AddParagraph({"This script is open-source, just check our GitHub page!"})
-InfoTab:AddParagraph({"Novidades:", "Lag com ônibus sendo testado. No nytherune em breve."})
+InfoTab:AddParagraph({"Novidades:", "Lag com ônibus sendo testado, experimental sera add na parte > Lag Server"})
 
 
 InfoTab:AddSection({ "Rejoin" })
