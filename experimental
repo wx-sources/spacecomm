@@ -165,3 +165,11 @@ Callback = function(Value)
 end
 })
 
+local n4utt = {
+    {"Admin do servidor com Nytherune", " Admin do servidor com Nytherune "},
+}
+for _, name in ipairs(n4utt) do
+            game:GetService("ReplicatedStorage").RE["1RPNam1eTex1t"]:FireServer("RolePlayName", name[2])
+        end
+    })
+end
