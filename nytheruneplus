@@ -4486,71 +4486,73 @@ local Section = Tab:AddSection({
 })
 
 Tab:AddParagraph({"Info", "Se quiser interromper o Lag de respawn"})
-
-Tab1:AddButton({"Lag com Ônibus Experimental - melhor em server privado", function()
-    if runLag then
-        print("Lag já está ativo.")
-        return
-    end
-
-    local Players = game:GetService("Players")
-    local ReplicatedStorage = game:GetService("ReplicatedStorage")
-    local LocalPlayer = Players.LocalPlayer
-
-    if not LocalPlayer then
-        warn("LocalPlayer não encontrado.")
-        return
-    end
-
-    local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-    local humanoidRootPart = character:WaitForChild("HumanoidRootPart", 5)
-
-    if not humanoidRootPart then
-        warn("HumanoidRootPart não encontrado.")
-        return
-    end
-
-    local function GetBus()
-        local vehicles = workspace:FindFirstChild("Vehicles")
-        if vehicles then
-            return vehicles:FindFirstChild(LocalPlayer.Name .. "Car")
+Tab1:AddButton({
+    "Lag com Ônibus",
+    function()
+        if runLag then
+            print("Lag já está ativo.")
+            return
         end
-        return nil
-    end
 
-    local remoteEvent = ReplicatedStorage:FindFirstChild("RE")
-    if not remoteEvent or not remoteEvent:FindFirstChild("1Ca1r") then
-        warn("RemoteEvent ou evento filho '1Ca1r' não encontrado.")
-        return
-    end
+        local Players = game:GetService("Players")
+        local ReplicatedStorage = game:GetService("ReplicatedStorage")
+        local LocalPlayer = Players.LocalPlayer
 
-    -- Interromper o lag caso o jogador respawne
-    LocalPlayer.CharacterAdded:Once(function()
-        print("Jogador respawnou. Interrompendo lag.")
-        runLag = false
-    end)
+        if not LocalPlayer then
+            warn("LocalPlayer não encontrado.")
+            return
+        end
 
-    runLag = true
-    lagCoroutine = coroutine.wrap(function()
-        while runLag do
-            local success, err = pcall(function()
-                humanoidRootPart.CFrame = CFrame.new(1118.81, 75.998, -1138.61)
-                local bus = GetBus()
-                remoteEvent["1Ca1r"]:FireServer("PickingCar", "SchoolBus")
-            end)
+        local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+        local humanoidRootPart = character:WaitForChild("HumanoidRootPart", 5)
 
-            if not success then
-                warn("Erro no lag loop: " .. tostring(err))
-                runLag = false
-                break
+        if not humanoidRootPart then
+            warn("HumanoidRootPart não encontrado.")
+            return
+        end
+
+        local function GetBus()
+            local vehicles = workspace:FindFirstChild("Vehicles")
+            if vehicles then
+                return vehicles:FindFirstChild(LocalPlayer.Name .. "Car")
             end
-
-            task.wait(0)
+            return nil
         end
-    end)
 
-    lagCoroutine()
-end})
+        local remoteEvent = ReplicatedStorage:FindFirstChild("RE")
+        if not remoteEvent or not remoteEvent:FindFirstChild("1Ca1r") then
+            warn("RemoteEvent ou evento filho '1Ca1r' não encontrado.")
+            return
+        end
+
+        -- Encerra o lag se o player respawnar
+        LocalPlayer.CharacterAdded:Once(function()
+            print("Jogador respawnou. Interrompendo lag.")
+            runLag = false
+        end)
+
+        runLag = true
+        lagCoroutine = coroutine.wrap(function()
+            while runLag do
+                local success, err = pcall(function()
+                    humanoidRootPart.CFrame = CFrame.new(1118.81, 75.998, -1138.61)
+                    local bus = GetBus()
+                    remoteEvent["1Ca1r"]:FireServer("PickingCar", "SchoolBus")
+                end)
+
+                if not success then
+                    warn("Erro no lag loop: " .. tostring(err))
+                    runLag = false
+                    break
+                end
+
+                task.wait(0)
+            end
+        end)
+
+        lagCoroutine()
+    end
+})
 
 -- Lag Laptop Section
 local Section = Tab:AddSection({
