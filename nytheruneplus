@@ -4482,142 +4482,75 @@ local Tab = Window:MakeTab({"Lag Server", "bomb"})
 
 -- Shutdown Custom Section
 local Section = Tab:AddSection({
-    Name = "Shutdown Personalizado"
+    Name = "Lags Experimentais"
 })
 
--- Shutdown Server Button
-Tab:AddButton({
-    Name = "Shutdown Servidor - The server has shutdown",
-    Callback = function()
-        for m = 1, 495 do
-            local args = {
-                [1] = "PickingTools",
-                [2] = "FireHose"
-            }
-            game:GetService("ReplicatedStorage").RE:FindFirstChild("1Too1l"):InvokeServer(unpack(args))
-            local args = {
-                [1] = "FireHose",
-                [2] = "DestroyFireHose"
-            }
-            game:GetService("Players").LocalPlayer.Backpack.FireHose.ToolSound:FireServer(unpack(args))
-        end
-        local oldcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(999999999.414, -475, 999999999.414)
-        local rootpart = game.Players.LocalPlayer.Character.HumanoidRootPart
-        repeat wait() until rootpart.Parent == nil
-        repeat wait() until game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldcf
-        game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = "Script de Dupe",
-            Text = "Shutdown Concluído, Agora Vai Desligar",
-            Button1 = "Ok",
-            Duration = 5
-        })
-        wait()
-        for _, ergeg in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-            if ergeg.Name == "FireHose" then
-                ergeg.Parent = game.Players.LocalPlayer.Character
-            end
-        end
-        wait(0.2)
-        game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = "Script de Dupe",
-            Text = "Iniciando duplicação, seja paciente",
-            Button1 = "Ok",
-            Duration = 5
-        })
-        wait(0.5)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(9999, -475, 9999)
-    end
-})
+Tab:AddParagraph({"Info", "Se quiser interromper o Lag de respawn"})
 
--- Shutdown Server (Internet Error) Button
-Tab:AddButton({
-    Name = "Shutdown Servidor - Please check your internet connection",
-    Callback = function()
-        for m = 1, 535 do
-            local args = {
-                [1] = "PickingTools",
-                [2] = "FireHose"
-            }
-            game:GetService("ReplicatedStorage").RE:FindFirstChild("1Too1l"):InvokeServer(unpack(args))
-            local args = {
-                [1] = "FireHose",
-                [2] = "DestroyFireHose"
-            }
-            game:GetService("Players").LocalPlayer.Backpack.FireHose.ToolSound:FireServer(unpack(args))
-        end
-        local oldcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(999999999.414, -475, 999999999.414)
-        local rootpart = game.Players.LocalPlayer.Character.HumanoidRootPart
-        repeat wait() until rootpart.Parent == nil
-        repeat wait() until game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldcf
-        game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = "Script de Dupe",
-            Text = "Shutdown Concluído, Agora Vai Desligar",
-            Button1 = "Ok",
-            Duration = 5
-        })
-        wait()
-        for _, ergeg in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-            if ergeg.Name == "FireHose" then
-                ergeg.Parent = game.Players.LocalPlayer.Character
-            end
-        end
-        wait(0.2)
-        game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = "Script de Dupe",
-            Text = "Iniciando duplicação, seja paciente",
-            Button1 = "Ok",
-            Duration = 5
-        })
-        wait(0.5)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(9999, -475, 9999)
+Tab1:AddButton({"Lag com Ônibus Experimental - melhor em server privado", function()
+    if runLag then
+        print("Lag já está ativo.")
+        return
     end
-})
 
--- Shutdown Server (Timeout Error) Button
-Tab:AddButton({
-    Name = "Shutdown Servidor - unexpected client behavior",
-    Callback = function()
-        for m = 1, 635 do
-            local args = {
-                [1] = "PickingTools",
-                [2] = "FireHose"
-            }
-            game:GetService("ReplicatedStorage").RE:FindFirstChild("1Too1l"):InvokeServer(unpack(args))
-            local args = {
-                [1] = "FireHose",
-                [2] = "DestroyFireHose"
-            }
-            game:GetService("Players").LocalPlayer.Backpack.FireHose.ToolSound:FireServer(unpack(args))
-        end
-        local oldcf = game. ascended
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldcf
-        game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = "Script de Dupe",
-            Text = "Shutdown Concluído, Agora Vai Desligar",
-            Button1 = "Ok",
-            Duration = 5
-        })
-        wait()
-        for _, ergeg in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-            if ergeg.Name == "FireHose" then
-                ergeg.Parent = game.Players.LocalPlayer.Character
-            end
-        end
-        wait(0.2)
-        game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = "Script de Dupe",
-            Text = "Iniciando duplicação, seja paciente",
-            Button1 = "Ok",
-            Duration = 5
-        })
-        wait(0.5)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(9999, -475, 9999)
+    local Players = game:GetService("Players")
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local LocalPlayer = Players.LocalPlayer
+
+    if not LocalPlayer then
+        warn("LocalPlayer não encontrado.")
+        return
     end
-})
+
+    local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild("HumanoidRootPart", 5)
+
+    if not humanoidRootPart then
+        warn("HumanoidRootPart não encontrado.")
+        return
+    end
+
+    local function GetBus()
+        local vehicles = workspace:FindFirstChild("Vehicles")
+        if vehicles then
+            return vehicles:FindFirstChild(LocalPlayer.Name .. "Car")
+        end
+        return nil
+    end
+
+    local remoteEvent = ReplicatedStorage:FindFirstChild("RE")
+    if not remoteEvent or not remoteEvent:FindFirstChild("1Ca1r") then
+        warn("RemoteEvent ou evento filho '1Ca1r' não encontrado.")
+        return
+    end
+
+    -- Interromper o lag caso o jogador respawne
+    LocalPlayer.CharacterAdded:Once(function()
+        print("Jogador respawnou. Interrompendo lag.")
+        runLag = false
+    end)
+
+    runLag = true
+    lagCoroutine = coroutine.wrap(function()
+        while runLag do
+            local success, err = pcall(function()
+                humanoidRootPart.CFrame = CFrame.new(1118.81, 75.998, -1138.61)
+                local bus = GetBus()
+                remoteEvent["1Ca1r"]:FireServer("PickingCar", "SchoolBus")
+            end)
+
+            if not success then
+                warn("Erro no lag loop: " .. tostring(err))
+                runLag = false
+                break
+            end
+
+            task.wait(0)
+        end
+    end)
+
+    lagCoroutine()
+end})
 
 -- Lag Laptop Section
 local Section = Tab:AddSection({
