@@ -6,9 +6,9 @@ MakeWindow({
 
     Hub = {
 
-        Title = "Cartola Hub",
+        Title = "🌌 Nytherune Hub 🌌 - Script Roblox Brookhaven Exploit",
 
-        Animation = "Brookhaven RP"
+        Animation = "Spacecomm Developers"
 
     },
 
@@ -16,25 +16,25 @@ MakeWindow({
 
     Key = {
 
-        KeySystem = false,
+        KeySystem = true,
 
-        Title = "Sistema de Chave",
+        Title = "Verificação Robloxcaptcha",
 
-        Description = "Digite a chave correta para continuar.",
+        Description = "Digite o texto copiado na sua área de transferência.",
 
-        KeyLink = "https://seusite.com/chave",
+        KeyLink = "Roblox9998",
 
-        Keys = {"1234", "28922"},
+        Keys = {"Roblox9998"},
 
         Notifi = {
 
             Notifications = true,
 
-            CorrectKey = "Chave correta! Iniciando script...",
+            CorrectKey = "Authorized | Loading content...",
 
-            Incorrectkey = "Chave incorreta, tente novamente.",
+            Incorrectkey = "400 Bad Request | There was a problem with your request.",
 
-            CopyKeyLink = "Link copiado!"
+            CopyKeyLink = "Texto copiado!"
 
         }
 
