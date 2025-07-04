@@ -4792,8 +4792,10 @@ Tab:AddParagraph({
 local Section = Tab:AddSection({
     Name = "Lag com carro"
 })
+
+
 local lagAtivo = false
-local lagThread
+local lagThread =
 
 Tab1:AddToggle({
     Name = "Lag com Ônibus",
@@ -4837,10 +4839,12 @@ Tab1:AddToggle({
         end
     end
 })
+
 Tab:AddParagraph({
     "Informação de Lag",
     "Normalmente esse script de ônibus n causa Lag em servers públicos, tente em um servidor privado!"
 })
+
 local Tab = Window:MakeTab({"Nomes", "Paper"})
 
 local isNameActive = false
