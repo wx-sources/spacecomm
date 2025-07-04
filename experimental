@@ -107,6 +107,16 @@ lagCoroutine()
 
 end})
 
+Tab:AddButton({"Reentrar no servidor", function()
+    local TeleportService = game:GetService("TeleportService")
+    local Players = game:GetService("Players")
+    local LocalPlayer = Players.LocalPlayer
+    local placeId = game.PlaceId
+    local jobId = game.JobId
+
+    TeleportService:TeleportToPlaceInstance(placeId, jobId, LocalPlayer)
+end})
+
 local Toggle1 = Tab1:AddToggle({
 Name = "Toggle",
 Description = "This is a <font color='rgb(88, 101, 242)'>Toggle</font> Example",
