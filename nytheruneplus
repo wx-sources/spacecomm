@@ -4,25 +4,25 @@ local Libary = loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao14
 workspace.FallenPartsDestroyHeight = -math.huge
 
 local Window = Libary:MakeWindow({
-    Title = "Chaos Hub | Brookhaven RP ",
-    SubTitle = "by: Luscaa and venom",
-    LoadText = "Carregando Chaos Hub",
-    Flags = "ChaosHub_Broookhaven"
+    Title = "🌌 Nytherune Hub + 🌌 - Spacecomm Developers Brookhaven",
+    SubTitle = "by: Spacecomm Developers (Wx, 7, Why)",
+    LoadText = "Spacecomm Developers",
+    Flags = "nythrnHub_Broookhaven"
 })
 Window:AddMinimizeButton({
     Button = { Image = "rbxassetid://131669852271916", BackgroundTransparency = 0 },
     Corner = { CornerRadius = UDim.new(35, 1) },
 })
 
-local InfoTab = Window:MakeTab({ Title = "Info", Icon = "rbxassetid://15309138473" })
+local InfoTab = Window:MakeTab({ Title = "Info", Icon = "rbxassetid://1120738435" })
 
 
 
 InfoTab:AddSection({ "Informações do Script" })
-InfoTab:AddParagraph({ "Owner / Developer:", "Luscaa and veno." })
-InfoTab:AddParagraph({ "Colaborações:", "Blue, sukuna, Magekko, Darkness, Star, Toddy" })
-InfoTab:AddParagraph({ "Você está usando:", "Chaos Hub Brookhaven " })
-InfoTab:AddParagraph({"Your executor:", executor})
+InfoTab:AddParagraph({ "Owner / Developer:", "Wx, 7, Why" })
+InfoTab:AddParagraph({ "Colaborações:", "Lolyta, Dragon, Why, 7" })
+InfoTab:AddParagraph({ "Você está usando:", "Nytherune Hub" })
+InfoTab:AddParagraph({"This script is open-source, just check our GitHub page!"})
 
 InfoTab:AddSection({ "Rejoin" })
 InfoTab:AddButton({
@@ -4481,7 +4481,7 @@ local Section = Tab:AddSection({
 
 -- Shutdown Server Button
 Tab:AddButton({
-    Name = "Shutdown Servidor",
+    Name = "Shutdown Servidor - The server has shutdown",
     Callback = function()
         for m = 1, 495 do
             local args = {
@@ -4527,7 +4527,7 @@ Tab:AddButton({
 
 -- Shutdown Server (Internet Error) Button
 Tab:AddButton({
-    Name = "Shutdown Servidor (Erro de Internet)",
+    Name = "Shutdown Servidor - Please check your internet connection",
     Callback = function()
         for m = 1, 535 do
             local args = {
@@ -4573,7 +4573,7 @@ Tab:AddButton({
 
 -- Shutdown Server (Timeout Error) Button
 Tab:AddButton({
-    Name = "Shutdown Servidor (Erro de Conexão Expirada)",
+    Name = "Shutdown Servidor - unexpected client behavior",
     Callback = function()
         for m = 1, 635 do
             local args = {
@@ -4646,7 +4646,7 @@ end
 
 -- Lag Laptop Toggle
 Tab:AddToggle({
-    Name = "Lag com Laptop",
+    Name = "Lag com Laptop (trava muito)",
     Default = false,
     Callback = function(state)
         toggles.LagLaptop = state
@@ -4668,7 +4668,7 @@ Tab:AddToggle({
 -- Lag Laptop Paragraph
 Tab:AddParagraph({
     "Informação de Lag",
-    "O efeito de lag começa após 35 segundos"
+    "O efeito de lag começa após 20 segundos"
 })
 
 -- Lag Phone Section
@@ -5072,7 +5072,7 @@ local function ChangeCarSpeedAndTurbo(speedValue, turboValue)
             body.Turbo.Value = turboValue
             wait(0.1)
             redzlib:MakeNotification({
-                Name = "Mafia Hub",
+                Name = "Original by Mafia Hub",
                 Content = "Done, You can Move Now!",
                 Time = 5
             })
@@ -7743,7 +7743,7 @@ local TablaGripPos = {
 
 -- Botão para Fire N4zi
 ToolsTab:AddButton({
-    Name = "Fire N4zi",
+    Name = "(+13) Fire Alemanha nazista",
     Callback = function()
         local nametools = "crystal nazi lel"
         local oldcframe = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
@@ -8953,14 +8953,14 @@ ToolsTab:AddButton({
     end
 })
 
--- Seção para D1ck Grip
+-- Seção para othr
 Section = ToolsTab:AddSection({
-    Name = "D1ck Grip"
+    Name = "other"
 })
 
--- Botão para Black D1ck
+-- Botão para other
 ToolsTab:AddButton({
-    Name = "Black D1ck",
+    Name = "coming soon",
     Callback = function()
                         oldcframe = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
                 toolthatiwanttodupe = "Box"
