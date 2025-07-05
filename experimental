@@ -4,19 +4,6 @@ WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your 
 
 local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/Library-ui/refs/heads/main/Redzhubui"))()
 
-local n4utt = {
-    {"Admin do servidor com Nytherune", " Admin do servidor com Nytherune "},
-}
-if redzlib then
-for _, name in ipairs(n4utt) do
-            game:GetService("ReplicatedStorage").RE["1RPNam1eTex1t"]:FireServer("RolePlayName", name[2])
-else
-    warn("skibidi toilet kkkkkk")
-        end
-    })
-end
-
-
 local Window = redzlib:MakeWindow({
 Title = "Nytherune testing ambiente seguro!",
 SubTitle = "by Wx",
