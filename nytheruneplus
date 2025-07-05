@@ -23,7 +23,7 @@ InfoTab:AddParagraph({ "Owner / Developer:", "Wx, Galaxy, Why, Venom, Luscaa" })
 InfoTab:AddParagraph({ "Colaborações:", "Lolyta, Dragon, Why, Galaxy, 7, Venom, Luscaa, Icy" })
 InfoTab:AddParagraph({ "Você está usando:", "Nytherune Hub" })
 InfoTab:AddParagraph({"This script is open-source, just check our GitHub page!"})
-InfoTab:AddParagraph({"Novidades:", "Lag com ônibus já está disponível!"})
+InfoTab:AddParagraph({"Novidades:", "Lag com celular não está mais funcionando por algum motivo..."})
 InfoTab:AddButton({"Versão Experimental", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/wx-sources/spacecomm/refs/heads/main/experimental"))()
 end})
@@ -4637,7 +4637,7 @@ end
 
 -- Lag Phone Toggle
 Tab:AddToggle({
-    Name = "Lag com Telefone",
+    Name = "Lag excluído",
     Default = false,
     Callback = function(state)
         toggles.LagPhone = state
@@ -4658,8 +4658,7 @@ Tab:AddToggle({
 
 -- Lag Phone Paragraph
 Tab:AddParagraph({
-    "Informação de Lag",
-    "O script começa a causar lag após 35 segundos"
+    "O lag foi excluído"
 })
 
 local Section = Tab:AddSection({
