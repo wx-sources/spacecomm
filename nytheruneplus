@@ -31,7 +31,7 @@ InfoTab:AddParagraph({ "Owner / Developer:", "Wx, Galaxy, Why, Venom, Luscaa" })
 InfoTab:AddParagraph({ "Colaborações:", "Lolyta, Dragon, Why, Galaxy, 7, Venom, Luscaa, Icy" })
 InfoTab:AddParagraph({ "Você está usando:", "Nytherune Hub" })
 InfoTab:AddParagraph({"O script é open source vc pode pegar as funções!"})
-InfoTab:AddParagraph({"Novidades:", "Agora da pra matar jogador com Navio! ainda em beta ok"})
+InfoTab:AddParagraph({"Novidades:", "novo discord disponivel, por favor não spammar no meu numero de telefone"})
 InfoTab:AddButton({"Versão Experimental", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/wx-sources/spacecomm/refs/heads/main/experimental"))()
 end})
@@ -1052,116 +1052,6 @@ local function KillWithCouch()
     if bv then bv:Destroy() end
     ReplicatedStorage.RE["1Clea1rTool1s"]:FireServer("ClearAllTools")
 end
-local function KillPlayerBoat()
-    if not selectedPlayerName then
-        warn("Erro: Nenhum jogador selecionado")
-        return
-    end
-    local target = Players:FindFirstChild(selectedPlayerName)
-    if not target or not target.Character then
-        warn("Erro: Jogador alvo não encontrado ou sem personagem")
-        return
-    end
-
-    local char = LocalPlayer.Character
-    if not char then
-        warn("Erro: Personagem do jogador local não encontrado")
-        return
-    end
-local Player = game.Players.LocalPlayer
-        local Character = Player.Character
-        local Humanoid = Character and Character:FindFirstChildOfClass("Humanoid")
-        local RootPart = Character and Character:FindFirstChild("HumanoidRootPart")
-        local Vehicles = game.Workspace:FindFirstChild("Vehicles")
-
-        if not Humanoid or not RootPart then
-            warn("Humanoid ou RootPart inválido")
-            return
-        end
-
-        local function spawnBoat()
-            RootPart.CFrame = CFrame.new(1754, -2, 58)
-            task.wait(0.5)
-            game:GetService("ReplicatedStorage").RE:FindFirstChild("1Ca1r"):FireServer("PickingBoat", "MilitaryBoatFree")
-            task.wait(1)
-            return Vehicles:FindFirstChild(Player.Name.."Car")
-        end
-
-        local PCar = Vehicles:FindFirstChild(Player.Name.."Car") or spawnBoat()
-        if not PCar then
-            warn("Falha ao spawnar o barco")
-            return
-        end
-
-        local Seat = PCar:FindFirstChild("Body") and PCar.Body:FindFirstChild("VehicleSeat")
-        if not Seat then
-            warn("Assento não encontrado")
-            return
-        end
-
-        repeat 
-            task.wait(0.1)
-            RootPart.CFrame = Seat.CFrame * CFrame.new(0, 1, 0)
-        until Humanoid.SeatPart == Seat
-
-        print("Barco spawnado!")
-
-        local TargetPlayer = game.Players:FindFirstChild(selectedPlayerName)
-        if not TargetPlayer or not TargetPlayer.Character then
-            warn("Jogador não encontrado")
-            return
-        end
-
-        local TargetC = TargetPlayer.Character
-        local TargetH = TargetC:FindFirstChildOfClass("Humanoid")
-        local TargetRP = TargetC:FindFirstChild("HumanoidRootPart")
-
-        if not TargetRP or not TargetH then
-            warn("Humanoid ou RootPart do alvo não encontrado")
-            return
-        end
-
-        local Spin = Instance.new("BodyAngularVelocity")
-        Spin.Name = "Spinning"
-        Spin.Parent = PCar.PrimaryPart
-        Spin.MaxTorque = Vector3.new(0, math.huge, 0)
-        Spin.AngularVelocity = Vector3.new(0, 369, 0) 
-
-        print("Kill ativo!")
-
-        local function moveCar(TargetRP, offset)
-            if PCar and PCar.PrimaryPart then
-                PCar:SetPrimaryPartCFrame(CFrame.new(TargetRP.Position + offset))
-            end
-        end
-
-        task.spawn(function()
-            while PCar and PCar.Parent and TargetRP and TargetRP.Parent do
-                task.wait(0.01) 
-                
-                moveCar(TargetRP, Vector3.new(0, 1, 0))  
-                moveCar(TargetRP, Vector3.new(0, -2.25, 5))  
-                moveCar(TargetRP, Vector3.new(0, 2.25, 0.25))  
-                moveCar(TargetRP, Vector3.new(-2.25, -1.5, 2.25))  
-                moveCar(TargetRP, Vector3.new(0, 1.5, 0))  
-                moveCar(TargetRP, Vector3.new(0, -1.5, 0))  
-
-                if PCar and PCar.PrimaryPart then
-                    local Rotation = CFrame.Angles(
-                        math.rad(math.random(-369, 369)),  
-                        math.rad(math.random(-369, 369)), 
-                        math.rad(math.random(-369, 369))
-                    )
-                    PCar:SetPrimaryPartCFrame(CFrame.new(TargetRP.Position + Vector3.new(0, 1.5, 0)) * Rotation)
-                end
-            end
-
-            if Spin and Spin.Parent then
-                Spin:Destroy()
-                print("Kill desativado")
-            end
-        end)
-    end
     local PlayerSection = Troll:AddSection({ Name = "Troll Player" })
 
     -- Função para obter lista de jogadores
@@ -1278,7 +1168,7 @@ local Player = game.Players.LocalPlayer
 
     Troll:AddDropdown({
         Name = "Selecionar Método para Matar",
-        Options = {"Bus", "Couch", "Couch Sem ir até o alvo [BETA]", "Navio [BETA]"},
+        Options = {"Bus", "Couch", "Couch Sem ir até o alvo [BETA]"},
         Default = "",
         Callback = function(value)
             methodKill = value
@@ -1297,8 +1187,6 @@ local Player = game.Players.LocalPlayer
                 KillPlayerCouch()
             elseif methodKill == "Couch Sem ir até o alvo [BETA]" then
                 KillWithCouch()
-            elseif methodKill == "Navio [BETA]"
-                KillPlayerBoat()
             else
                 -- Método de ônibus
                 local character = LocalPlayer.Character
