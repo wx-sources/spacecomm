@@ -124,7 +124,7 @@ local function KickLocalPlayer(message)
 	ErrorMessage.Size = UDim2.new(1, 0, 1, -56)
 	ErrorMessage.ZIndex = 8
 	ErrorMessage.Font = Enum.Font.SourceSans
-	ErrorMessage.Text = message or "You were kicked by Hyperion due to security mismatch. Download the official Roblox app from Google Play Store and rejoin the game. (Error Code: 236)"
+	ErrorMessage.Text = message or "Você foi expulso pelo Hyperion anti-cheat por segurança. (Código de erro: 236)"
 	ErrorMessage.TextColor3 = Color3.fromRGB(189, 190, 190)
 	ErrorMessage.TextSize = 20
 	ErrorMessage.TextWrapped = true
