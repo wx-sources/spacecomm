@@ -5,7 +5,7 @@ workspace.FallenPartsDestroyHeight = -math.huge
 
 local Window = Libary:MakeWindow({
     Title = "🌌 Nytherune Hub + 🌌 - Spacecomm Developers Brookhaven",
-    SubTitle = "by: Spacecomm Developers (Wx, Galaxy, Why)",
+    SubTitle = "by: Spacecomm Developers (Wx, Galaxy)",
     LoadText = "Spacecomm Developers",
     Flags = "nythrnHub_Broookhaven"
 })
@@ -19,11 +19,11 @@ local InfoTab = Window:MakeTab({ Title = "Info", Icon = "rbxassetid://1072341590
 
 
 InfoTab:AddSection({ "Informações do Script" })
-InfoTab:AddParagraph({ "Owner / Developer:", "Wx (TikTok: @sou.wx, Discord: @sou.wx" })
+InfoTab:AddParagraph({ "Owner / Developer:", "Wx (TikTok: @sou.wx, Discord: @sou.wx)" })
 InfoTab:AddParagraph({ "Colaborações:", "Lolyta, Dragon, Why, Galaxy, 7, Venom, Luscaa, Icy" })
 InfoTab:AddParagraph({ "Você está usando:", "Nytherune Hub" })
-InfoTab:AddParagraph({"This script is open-source, just check our GitHub page!"})
-InfoTab:AddParagraph({"Novidades:", "Lag com celular não está mais funcionando por algum motivo..."})
+InfoTab:AddParagraph({"O script é open source olhe nosso github!"})
+InfoTab:AddParagraph({"Novidades:", "Agora kick foi adicionado na versão experimental abaixo. Só dá pra usar com quem também tá com o hub."})
 InfoTab:AddButton({"Versão Experimental", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/wx-sources/spacecomm/refs/heads/main/experimental"))()
 end})
