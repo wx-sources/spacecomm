@@ -17,7 +17,7 @@ Window:AddMinimizeButton({
 local InfoTab = Window:MakeTab({ Title = "Info", Icon = "rbxassetid://10723415903" })
 
 
-Tab1:AddDiscordInvite({
+infoTab:AddDiscordInvite({
     Name = "Spacecomm Developers",
     Description = "Join server",
     Logo = "rbxassetid://18751483361",
