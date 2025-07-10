@@ -5,7 +5,7 @@ workspace.FallenPartsDestroyHeight = -math.huge
 
 local Window = Libary:MakeWindow({
     Title = "🌌 Nytherune Hub + 🌌 - Spacecomm Developers Brookhaven",
-    SubTitle = "by: Spacecomm Developers (Wx, Galaxy)",
+    SubTitle = "by: Spacecomm Developers (Wx, Galaxy, Self)",
     LoadText = "Spacecomm Developers",
     Flags = "nythrnHub_Broookhaven"
 })
@@ -17,7 +17,12 @@ Window:AddMinimizeButton({
 local InfoTab = Window:MakeTab({ Title = "Info", Icon = "rbxassetid://10723415903" })
 
 
-
+Tab1:AddDiscordInvite({
+    Name = "Spacecomm Developers",
+    Description = "Join server",
+    Logo = "rbxassetid://18751483361",
+    Invite = "https://discord.gg/ruEdVGsthy",
+})
 InfoTab:AddSection({ "Informações do Script" })
 InfoTab:AddParagraph({ "Owner / Developer:", "Wx (TikTok: @sou.wx, Discord: @sou.wx)" })
 InfoTab:AddParagraph({ "Colaborações:", "Lolyta, Dragon, Why, Galaxy, 7, Venom, Luscaa, Icy" })
