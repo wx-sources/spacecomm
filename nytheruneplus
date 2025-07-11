@@ -314,7 +314,7 @@ InfoTab:AddParagraph({ "Owner / Developer:", "Wx (TikTok: @sou.wx, Discord: @sou
 InfoTab:AddParagraph({ "Colaborações:", "Lolyta, Dragon, Why, Galaxy, 7, Venom, Luscaa, Icy" })
 InfoTab:AddParagraph({ "Você está usando:", "Nytherune Hub" })
 InfoTab:AddParagraph({"O script é open source olhe nosso github!"})
-InfoTab:AddParagraph({"Novidades:", "Agora kick e outros foram adicionados na versão oficial. Só dá pra usar com quem também tá com o hub."})
+InfoTab:AddParagraph({"Novidades:", "O Autofarm está disponível!"})
 InfoTab:AddButton({"Versão Experimental", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/wx-sources/spacecomm/refs/heads/main/experimental"))()
 end})
