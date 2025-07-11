@@ -332,7 +332,7 @@ local autoTab = Window:MakeTab({ Title = "Autofarm", Icon = "rbxassetid://107349
 
 
 autoTab:AddSection({ "Autofarm" })
-InfoTab:AddParagraph({"O autofarm dura 100 segundos. Não mova seu personagem até lá e deixe o script mover por você."})
+autoTab:AddParagraph({"O autofarm dura 100 segundos. Não mova seu personagem até lá e deixe o script mover por você."})
 autoTab:AddButton({
     Name = "Autofarm",
     Callback = function()
