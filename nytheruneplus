@@ -328,6 +328,16 @@ InfoTab:AddButton({
     end
 })
 
+local autoTab = Window:MakeTab({ Title = "Autofarm", Icon = "rbxassetid://10734983868" })
+
+
+autoTab:AddSection({ "Autofarm" })
+autoTab:AddButton({
+    Name = "Autofarm",
+    Callback = function()
+      print("Script de Autofarm pegar tickets FE")
+    end
+})
 
 
 local TrollTab = Window:MakeTab({ Title = "Scripts Trolls", Icon = "rbxassetid://13364900349" })
