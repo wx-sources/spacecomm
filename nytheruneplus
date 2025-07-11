@@ -342,7 +342,7 @@ local function getCharacter()
 end
 
 local destino = Vector3.new(223, 8, -137)
-local fim = Vector3.new(0, 0, 0)
+local fim = Vector3.new(140, 3, -172)
 
 local tempoLimite = 100 -- segundos
 local intervalo = 0.5 -- segundos
