@@ -332,10 +332,45 @@ local autoTab = Window:MakeTab({ Title = "Autofarm", Icon = "rbxassetid://107349
 
 
 autoTab:AddSection({ "Autofarm" })
+InfoTab:AddParagraph({"O autofarm dura 100 segundos. Não mova seu personagem até lá e deixe o script mover por você."})
 autoTab:AddButton({
     Name = "Autofarm",
     Callback = function()
-      print("Script de Autofarm pegar tickets FE")
+       local player = game.Players.LocalPlayer
+local function getCharacter()
+    return player.Character or player.CharacterAdded:Wait()
+end
+
+local destino = Vector3.new(223, 8, -137)
+local fim = Vector3.new(0, 0, 0)
+
+local tempoLimite = 100 -- segundos
+local intervalo = 0.5 -- segundos
+
+task.spawn(function()
+    local char = getCharacter()
+    local humanoid = char:WaitForChild("Humanoid")
+    local hrp = char:WaitForChild("HumanoidRootPart")
+
+    local tempoPassado = 0
+    while tempoPassado < tempoLimite do
+        if humanoid.Sit == false then
+            hrp.CFrame = CFrame.new(destino)
+        end
+        task.wait(intervalo)
+        tempoPassado += intervalo
+    end
+
+    -- Teleportar para (0, 0, 0)
+    hrp.CFrame = CFrame.new(fim)
+
+    -- Mostrar notificação
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Autofarm",
+        Text = "Autofarm completed!",
+        Duration = 5
+    })
+end)
     end
 })
 
