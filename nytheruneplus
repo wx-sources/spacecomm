@@ -810,9 +810,9 @@ local Libary = loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao14
 workspace.FallenPartsDestroyHeight = -math.huge
 
 local Window = Libary:MakeWindow({
-    Title = "🌌 Nytherune Hub + 🌌 - Spacecomm Developers Brookhaven",
-    SubTitle = "by: Spacecomm Developers (Wx, Galaxy, Self)",
-    LoadText = "Spacecomm Developers",
+    Title = "🌌 Nytherune Hub + 🌌 - Nytherune Developers Brookhaven",
+    SubTitle = "by: Nytherune Developers (Wx, Galaxy, Self)",
+    LoadText = "Nytherune Developers",
     Flags = "nythrnHub_Broookhaven"
 })
 Window:AddMinimizeButton({
@@ -824,7 +824,7 @@ local InfoTab = Window:MakeTab({ Title = "Info", Icon = "rbxassetid://1072341590
 
 
 InfoTab:AddDiscordInvite({
-    Name = "Spacecomm Developers",
+    Name = "Nytherune Developers",
     Description = "Join server",
     Logo = "rbxassetid://18751483361",
     Invite = "https://discord.gg/ruEdVGsthy",
