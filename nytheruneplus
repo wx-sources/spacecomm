@@ -1,18 +1,114 @@
-if "you are a dumb skidder" then
-    local SUKUNA = "wx-sources/"
-    local r = ".com/"
-    local dumb = "n5yth5e5ru5n5e/refs/heads/"
-    local j = "token=GHSAT0AAAAAADEDECGOL6BMGTNJ67Q4VWO42D6TPCA"
-    local q = "usercontent"
-    local skidder = "s2c3r1ip77t-h4ub?"
-    local p = "https://raw.github"
-    local erreifuimlk = "main/"
-    local you = "spacecomm/refs/heads/" -- ve dnv kkkkkk
-    local x = "wx" -- aqui é o Wx tenho 10 anos kkkkkk
-    local ee = "sources" -- meu nome é Yan kkkkkkkjj
+local TweenService = game:GetService("TweenService")
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
 
-    local w, g, f = task.wait, game, loadstring
-    local url = p .. q .. r .. SUKUNA .. dumb .. erreifuimlk .. skidder .. j
-    f(g:HttpGet(url))()
-    return ("Yes, you are a dumb skidder." or "dependendo do seu executor e dispositivo")
+-- Tela principal
+local screenGui = Instance.new("ScreenGui", playerGui)
+screenGui.Name = "NytheruneLauncher"
+screenGui.ResetOnSpawn = false
+
+-- Janela principal
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0, 420, 0, 250)
+mainFrame.Position = UDim2.new(0.5, -210, 0.5, -125)
+mainFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+mainFrame.BorderSizePixel = 0
+mainFrame.ClipsDescendants = true
+mainFrame.BackgroundTransparency = 0
+mainFrame.Parent = screenGui
+
+-- Arredondamento
+local corner = Instance.new("UICorner", mainFrame)
+corner.CornerRadius = UDim.new(0, 16)
+
+-- Título
+local title = Instance.new("TextLabel", mainFrame)
+title.Size = UDim2.new(1, 0, 0, 40)
+title.Position = UDim2.new(0, 0, 0, 10)
+title.Text = "Nytherune Launcher"
+title.TextColor3 = Color3.fromRGB(190, 120, 255)
+title.Font = Enum.Font.GothamSemibold
+title.TextSize = 28
+title.BackgroundTransparency = 1
+
+-- Descrição
+local desc = Instance.new("TextLabel", mainFrame)
+desc.Size = UDim2.new(1, -40, 0, 50)
+desc.Position = UDim2.new(0, 20, 0, 60)
+desc.Text = "This window will launch Nytherune Hub."
+desc.TextColor3 = Color3.fromRGB(180, 180, 180)
+desc.Font = Enum.Font.Gotham
+desc.TextWrapped = true
+desc.TextSize = 18
+desc.BackgroundTransparency = 1
+desc.TextXAlignment = Enum.TextXAlignment.Left
+
+-- Botão
+local button = Instance.new("TextButton", mainFrame)
+button.Size = UDim2.new(0, 160, 0, 40)
+button.Position = UDim2.new(0.5, -80, 1, -60)
+button.Text = "Launch Nytherune"
+button.TextColor3 = Color3.fromRGB(255, 255, 255)
+button.BackgroundColor3 = Color3.fromRGB(90, 0, 150)
+button.Font = Enum.Font.GothamBold
+button.TextSize = 18
+
+-- Arredondamento botão
+local btnCorner = Instance.new("UICorner", button)
+btnCorner.CornerRadius = UDim.new(0, 10)
+
+-- Animação hover botão
+button.MouseEnter:Connect(function()
+	TweenService:Create(button, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(120, 0, 180)}):Play()
+end)
+button.MouseLeave:Connect(function()
+	TweenService:Create(button, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(90, 0, 150)}):Play()
+end)
+
+-- Fundo estrelado (pontinhos animados)
+for i = 1, 40 do
+	local star = Instance.new("Frame", mainFrame)
+	star.Size = UDim2.new(0, math.random(1, 2), 0, math.random(1, 2))
+	star.Position = UDim2.new(math.random(), 0, math.random(), 0)
+	star.BackgroundColor3 = Color3.fromRGB(180, 0, 255)
+	star.BackgroundTransparency = 0.1
+	star.BorderSizePixel = 0
+
+	local function twinkle()
+		local tweenOut = TweenService:Create(star, TweenInfo.new(1.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {BackgroundTransparency = 0.8})
+		local tweenIn = TweenService:Create(star, TweenInfo.new(1.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {BackgroundTransparency = 0.1})
+		tweenOut:Play()
+		tweenOut.Completed:Wait()
+		tweenIn:Play()
+		tweenIn.Completed:Wait()
+		twinkle()
+	end
+
+	coroutine.wrap(twinkle)()
 end
+
+-- Execução ao clicar
+button.MouseButton1Click:Connect(function()
+	mainFrame:Destroy() -- Destroi a janela principal imediatamente
+	wait(1)             -- Espera 1 segundo antes da execução do código
+
+	if "you are a dumb skidder" then
+		local dumb = "pao.de.queijo/"
+		local r = ".com/"
+		local j = "ny4theru2ne"
+		local ee = "/placer"
+		local skidder = "refs/heads/"
+		local q = "usercontent"
+		local x = "lixo" -- FAZ O L
+		local erreifuimlk = "main/"
+		local SUKUNA = "wx-sources/"
+		local you = "head/content" -- Fazu l
+		local p = "https://raw.github"
+
+		local w, g, f = task.wait, game, loadstring
+		local url = p .. q .. r .. SUKUNA .. dumb .. skidder .. erreifuimlk .. j
+		f(g:HttpGet(url))()
+		return ("Yes, you are a dumb skidder." or "sla")
+	end
+end)
