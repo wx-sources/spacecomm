@@ -3837,34 +3837,29 @@ Troll:AddButton({
 
         local mochila = eu:WaitForChild("Backpack")
 
-        -- Renomear ferramentas existentes com "fling" no nome para "Admin Fling"
         for _, ferramentaExistente in pairs(mochila:GetChildren()) do
             if ferramentaExistente:IsA("Tool") and ferramentaExistente.Name:lower():find("fling") then
                 ferramentaExistente.Name = "Admin Fling"
             end
         end
 
-        -- Criar a ferramenta caso não exista
         if not mochila:FindFirstChild(NOME_FERRAMENTA) then
             local ferramenta = Instance.new("Tool")
             ferramenta.Name = NOME_FERRAMENTA
             ferramenta.RequiresHandle = true
             ferramenta.CanBeDropped = false
 
-            -- Criar handle
             local handle = Instance.new("Part")
             handle.Name = "Handle"
             handle.Size = Vector3.new(1, 1, 1)
-            handle.Transparency = 1 -- invisível
+            handle.Transparency = 1
             handle.Parent = ferramenta
 
-            -- Adicionar decal
             local decal = Instance.new("Decal")
             decal.Texture = "rbxassetid://775552544"
             decal.Face = Enum.NormalId.Front
             decal.Parent = handle
 
-            -- Eventos Equip/Unequip
             ferramenta.Equipped:Connect(function()
                 ferramentaEquipada = true
             end)
@@ -3876,7 +3871,6 @@ Troll:AddButton({
             ferramenta.Parent = mochila
         end
 
-        -- Função FlingBall
         local function FlingBall(target)
             local player = jogadores.LocalPlayer
             local character = player.Character or player.CharacterAdded:Wait()
@@ -3899,6 +3893,7 @@ Troll:AddButton({
             local Ball = ServerBalls:FindFirstChild("Soccer" .. player.Name) or GetBall()
             Ball.CanCollide = false
             Ball.Massless = true
+            Ball.Transparency = 1             -- BOLA INVISÍVEL
             Ball.CustomPhysicalProperties = PhysicalProperties.new(0.0001, 0, 0)
 
             if target ~= player then
@@ -3938,7 +3933,6 @@ Troll:AddButton({
             end
         end
 
-        -- Evento toque para ativar o fling
         entrada.TouchTap:Connect(function(toques, processado)
             if not ferramentaEquipada or processado then return end
             local pos = toques[1]
