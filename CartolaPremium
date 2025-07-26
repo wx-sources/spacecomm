@@ -360,18 +360,6 @@ MakeWindow({
 
         Animation = "Nytherune Developers"
 
-    },
-
-    local Configs_HUB = {
-    Cor_Hub = Color3.fromRGB(255, 0, 0)),        
-    Cor_Options = Color3.fromRGB(255, 0, 0),     
-    Cor_Stroke = Color3.fromRGB(255, 0, 0),     
-    Cor_Text = Color3.fromRGB(255, 255, 255),     
-    Cor_DarkText = Color3.fromRGB(200, 200, 200), 
-    Corner_Radius = UDim.new(0, 4),               
-    Text_Font = Enum.Font.Montserrat              
-}
-
     Key = {
 
         KeySystem = true,
