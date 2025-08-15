@@ -347,14 +347,14 @@ local function lagarJogoFireX(fireXPath, maxTeleports)
         end)
 
         -- Após 2 minutos, parar tudo e clicar na tela com Heartbeat
-        task.delay(120, function()
+        task.delay(300, function()
             if toggles.LagFireX then
                 -- Para o loop inicial
                 toggles.LagFireX = false
                 connection:Disconnect()
 
                 -- Teleporta para (0, 0, 0)
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 0, 0)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 900000, 0)
 
                 -- Simulação de clique infinito na tela com Heartbeat
                 local clickConnection
