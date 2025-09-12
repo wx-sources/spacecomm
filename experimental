@@ -388,6 +388,7 @@ Tab1:AddToggle({
     end
 })
 local TrollTab = Window:MakeTab({ Title = "Scripts Trolls", Icon = "rbxassetid://13364900349" })
+local Section = TrollTab:AddSection({"Skybox (pra alterar mude sua camisa!)"})
 TrollTab:AddButton({
    Name = "[🌫] Aplicar Skybox da sua camisa (não visual)",
    Callback = function()
