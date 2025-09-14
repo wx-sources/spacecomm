@@ -1,5 +1,5 @@
 -- [[ This Luau Script was encrypted with LuauEclipse v16.1.2 ]]
-
+print("tenta a sorte skidder")
 local ng3OSgaH = string.char(32)
 local IcmrXGDl = string.char(33)
 local FyzoBQ1S = string.char(34)
