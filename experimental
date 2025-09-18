@@ -404,8 +404,7 @@ function missing(t, f, fallback)
 end
 
 cloneref = missing("function", cloneref, function(...) return ... end)
-
-local Services = setmetatable({}, {
+Dulocal Services = setmetatable({}, {
     __index = function(_, name)
         return cloneref(game:GetService(name))
     end
@@ -472,3 +471,387 @@ end
 local EmoteId = 139092694533784
 LoadTrack(EmoteId)
 end})
+
+
+
+local ToolsTab = Window:MakeTab({"Itens [ Update! ]", "backpack"})
+
+
+    
+local SectionDupl = ToolsTab:AddSection({
+    Name = "Duplicate Laptops"
+})
+ToolsTab:AddButton({
+    Name = "Duplicate Laptops (Required for Some Things)",
+    Callback = function()
+-- Função para simular clique normal
+local function clickNormally(object)
+    local clickDetector = object:FindFirstChildWhichIsA("ClickDetector")
+    if clickDetector then
+        fireclickdetector(clickDetector)
+    end
+end
+
+-- Encontrar o laptop
+local laptop = workspace:FindFirstChild("WorkspaceCom")
+if laptop then
+    laptop = laptop:FindFirstChild("001_GiveTools")
+    if laptop then
+        laptop = laptop:FindFirstChild("Laptop")
+    end
+end
+
+if laptop then
+    local player = game.Players.LocalPlayer
+    local character = player.Character
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        local startTime = tick()  -- Marca o tempo de início
+        while tick() - startTime < 60 do  -- Loop por 60 segundos
+            -- Teleportar para o laptop
+            character.HumanoidRootPart.CFrame = laptop.CFrame
+            -- Clicar continuamente
+            clickNormally(laptop)
+            -- Delay para evitar crash
+            task.wait(0.25)
+        end
+
+        -- Desequipar todas as ferramentas, mantendo-as no inventário
+        local backpack = player:FindFirstChildOfClass("Backpack")
+        if backpack then
+            for _, tool in ipairs(character:GetChildren()) do
+                if tool:IsA("Tool") then
+                    tool.Parent = backpack  -- Move a ferramenta da mão para o inventário
+                end
+            end
+        end
+
+        print("Parou de clicar após 60 segundos e ferramentas foram desequipadas.")
+    else
+        warn("HumanoidRootPart não encontrado.")
+    end
+else
+    warn("Laptop não encontrado.")
+end
+end
+})
+
+-- Referências aos remotes
+local cleartoolremote = game:GetService("ReplicatedStorage").RE:FindFirstChild("1Clea1rTool1s")
+local picktoolremote = game:GetService("ReplicatedStorage").RE:FindFirstChild("1Too1l")
+
+-- Seção de controle de itens
+local Section = ToolsTab:AddSection({
+    Name = "Items Control"
+})
+
+-- Botão para limpar todas as ferramentas
+ToolsTab:AddButton({
+    Name = "Clear All Tools",
+    Callback = function()
+        local args = {
+            [1] = "ClearAllTools"
+        }
+        game:GetService("ReplicatedStorage"):WaitForChild("RE"):WaitForChild("1Clea1rTool1s"):FireServer(unpack(args))
+    end
+})
+
+-- Seção para equipar itens
+Section = ToolsTab:AddSection({
+    Name = "Equip Items"
+})
+
+-- Botão para equipar todos os itens
+ToolsTab:AddButton({
+    Name = "Equipar todos os itens",
+    Callback = function()
+        for _, tool in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+            if tool:IsA("Tool") then
+                tool.Parent = game.Players.LocalPlayer.Character
+            end
+        end
+    end
+})
+
+-- Seção para Testes
+Section = ToolsTab:AddSection({
+    Name = "Super Aura Things/Tools"
+})
+
+
+
+
+
+                          
+-- Botão para Super Aura Smoke
+ToolsTab:AddButton({
+    Name = "Super Aura Smoke [ NEW ! ]",
+    Description = "A aura vai aparecer se vc segurar a tela, aí a fumaça vai aparecendo!",
+    Callback = function()
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local LocalPlayer = Players.LocalPlayer
+
+-- Caminho do FireX
+local fireXPath = workspace:FindFirstChild("WorkspaceCom") 
+    and workspace.WorkspaceCom:FindFirstChild("001_GiveTools") 
+    and workspace.WorkspaceCom["001_GiveTools"]:FindFirstChild("FireX")
+
+local nametools = "crystal nazi lel"
+local oldcframe = LocalPlayer.Character.HumanoidRootPart.CFrame
+local attempts = 57
+local delayBetweenClicks = 0.3
+
+-- Grip e Handle
+local gripBase = CFrame.new(-0.290086746, 0.0755810738, -0.0109872818, 0.0439560413, 0.509705901, -0.859225094, -0.0591450632, -0.857220173, -0.511542261, -0.997281134, 0.0733042806, -0.00753343105)
+local handleOffset = CFrame.new(2, 1, -3)
+
+-- Velocidade absurda de rotação (sempre)
+local rotSpeed = math.rad(3600) -- 3600°/s
+
+-- Função de clique na ferramenta
+local function clickTool(object)
+    local clickDetector = object:FindFirstChildWhichIsA("ClickDetector")
+    if clickDetector then
+        fireclickdetector(clickDetector)
+    end
+end
+
+-- Configura Grip e Handle
+local function setupTool(tool)
+    tool.Grip = gripBase
+    tool.Name = nametools
+
+    local handle = tool:FindFirstChild("Handle")
+    if handle then
+        local weld = handle:FindFirstChildWhichIsA("Motor6D")
+        if weld then weld:Destroy() end
+
+        -- HandleOffset fixo
+        RunService.RenderStepped:Connect(function()
+            if handle.Parent == LocalPlayer.Character then
+                handle.CFrame = LocalPlayer.Character.HumanoidRootPart.CFrame * handleOffset
+            end
+        end)
+    end
+
+    tool.Parent = LocalPlayer.Character
+end
+
+-- Rotação contínua infinita
+RunService.RenderStepped:Connect(function(deltaTime)
+    local hrp = LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+    if hrp then
+        hrp.CFrame = hrp.CFrame * CFrame.Angles(0, rotSpeed * deltaTime, 0)
+    end
+end)
+
+-- Função de duplicação do FireX
+local function dupeToolsFireX(fireXPath)
+    if not fireXPath then
+        warn("FireX não encontrado.")
+        return
+    end
+
+    local hrp = LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+    if not hrp then return end
+
+    hrp.CFrame = fireXPath.CFrame
+
+    for i = 1, attempts do
+        clickTool(fireXPath)
+        task.wait(delayBetweenClicks)
+
+        local tool = LocalPlayer.Backpack:FindFirstChild("FireX")
+        if tool then
+            setupTool(tool)
+        end
+    end
+
+    hrp.CFrame = oldcframe
+end
+
+-- Executa o dupe
+dupeToolsFireX(fireXPath)
+    end
+})
+                                                                                                                        
+local SectionToolW = ToolsTab:AddSection({
+    Name = "Tool Writer (doesnt support more than 10 letters)"
+})
+
+ToolsTab:AddButton({
+    Name = "Tool Writer (10 Letters)",
+    Callback = function()
+if getgenv()._Running then
+    warn("Already running")
+    return
+end
+getgenv()._Running = true
+
+local Players = game:GetService("Players")
+local CoreGui = game:GetService("CoreGui")
+local UserInputService = game:GetService("UserInputService")
+local player = Players.LocalPlayer
+
+local CHAR_MAP = {
+    ["A"] = {"01110","10001","10001","11111","10001","10001","10001"},
+    ["B"] = {"11110","10001","10001","11110","10001","10001","11110"},
+    ["C"] = {"01110","10001","10000","10000","10000","10001","01110"},
+    ["D"] = {"11110","10001","10001","10001","10001","10001","11110"},
+    ["E"] = {"11111","10000","10000","11110","10000","10000","11111"},
+    ["F"] = {"11111","10000","10000","11110","10000","10000","10000"},
+    ["G"] = {"01110","10001","10000","10111","10001","10001","01110"},
+    ["H"] = {"10001","10001","10001","11111","10001","10001","10001"},
+    ["I"] = {"111","010","010","010","010","010","111"},
+    ["J"] = {"00111","00010","00010","00010","10010","10010","01100"},
+    ["K"] = {"10001","10010","10100","11000","10100","10010","10001"},
+    ["L"] = {"10000","10000","10000","10000","10000","10000","11111"},
+    ["M"] = {"10001","11011","10101","10101","10001","10001","10001"},
+    ["N"] = {"10001","11001","10101","10011","10001","10001","10001"},
+    ["O"] = {"01110","10001","10001","10001","10001","10001","01110"},
+    ["P"] = {"11110","10001","10001","11110","10000","10000","10000"},
+    ["Q"] = {"01110","10001","10001","10001","10101","10010","01101"},
+    ["R"] = {"11110","10001","10001","11110","10100","10010","10001"},
+    ["S"] = {"01111","10000","10000","01110","00001","00001","11110"},
+    ["T"] = {"11111","00100","00100","00100","00100","00100","00100"},
+    ["U"] = {"10001","10001","10001","10001","10001","10001","01110"},
+    ["V"] = {"10001","10001","10001","10001","10001","01010","00100"},
+    ["W"] = {"10001","10001","10001","10101","10101","11011","10001"},
+    ["X"] = {"10001","01010","00100","00100","01010","10001","10001"},
+    ["Y"] = {"10001","10001","10001","01010","00100","00100","00100"},
+    ["Z"] = {"11111","00001","00010","00100","01000","10000","11111"},
+    [" "] = {"00000","00000","00000","00000","00000","00000","00000"},
+}
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "TextToolGUI"
+screenGui.Parent = CoreGui
+screenGui.ResetOnSpawn = false
+
+local mainFrame = Instance.new("Frame", screenGui)
+mainFrame.Size = UDim2.new(0, 250, 0, 120)
+mainFrame.Position = UDim2.new(0.5, -125, 0.5, -60)
+mainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+mainFrame.BorderSizePixel = 0
+Instance.new("UICorner", mainFrame).CornerRadius = UDim.new(0, 10)
+
+local title = Instance.new("TextLabel", mainFrame)
+title.Size = UDim2.new(1, 0, 0, 30)
+title.BackgroundTransparency = 1
+title.Text = "Text Former"
+title.Font = Enum.Font.GothamBold
+title.TextSize = 16
+title.TextColor3 = Color3.fromRGB(255, 50, 50)
+
+local textBox = Instance.new("TextBox", mainFrame)
+textBox.Size = UDim2.new(0.9, 0, 0, 30)
+textBox.Position = UDim2.new(0.05, 0, 0, 40)
+textBox.PlaceholderText = "Type here..."
+textBox.Text = ""
+textBox.TextSize = 14
+textBox.Font = Enum.Font.Gotham
+textBox.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+textBox.TextColor3 = Color3.new(1,1,1)
+Instance.new("UICorner", textBox).CornerRadius = UDim.new(0, 6)
+
+local button = Instance.new("TextButton", mainFrame)
+button.Size = UDim2.new(0.9, 0, 0, 30)
+button.Position = UDim2.new(0.05, 0, 0, 80)
+button.Text = "Form Text"
+button.Font = Enum.Font.GothamBold
+button.TextSize = 14
+button.BackgroundColor3 = Color3.fromRGB(255, 50, 50)
+button.TextColor3 = Color3.new(1,1,1)
+Instance.new("UICorner", button).CornerRadius = UDim.new(0, 6)
+
+local function getTools()
+    local tools = {}
+    for _, c in ipairs({player.Backpack, player.Character}) do
+        for _, tool in ipairs(c:GetChildren()) do
+            if tool:IsA("Tool") then
+                table.insert(tools, tool)
+            end
+        end
+    end
+    return tools
+end
+
+local function formText(text)
+    local tools = getTools()
+    local gripMap = {}
+    local startPos = Vector3.new(0, -5, 0)
+    local pixelSize = Vector3.new(1.2, 1.2, 0)
+    local toolIndex = 1
+    local offsetX = 0
+
+    for i = 1, #text do
+        local char = text:sub(i,i):upper()
+        local map = CHAR_MAP[char]
+        if map then
+            for y = 1, #map do
+                for x = 1, #map[y] do
+                    if map[y]:sub(x,x) == "1" then
+                        local tool = tools[toolIndex]
+                        if tool then
+                            gripMap[tool] = CFrame.new(
+                                startPos.X + (offsetX + x - 1) * pixelSize.X,
+                                startPos.Y + (y - 1) * pixelSize.Y,
+                                startPos.Z
+                            )
+                            toolIndex += 1
+                        end
+                    end
+                end
+            end
+            offsetX += #map[1] + 1
+        end
+    end
+
+    for tool, grip in pairs(gripMap) do
+        tool.Grip = grip
+        tool.Parent = player.Character
+    end
+end
+
+button.MouseButton1Click:Connect(function()
+    if textBox.Text ~= "" then
+        formText(textBox.Text)
+    end
+end)
+
+do
+    local dragging, dragInput, dragStart, startPos
+    mainFrame.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = mainFrame.Position
+
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
+        end
+    end)
+
+    mainFrame.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
+    end)
+
+    UserInputService.InputChanged:Connect(function(input)
+        if input == dragInput and dragging then
+            local delta = input.Position - dragStart
+            mainFrame.Position = UDim2.new(
+                startPos.X.Scale, startPos.X.Offset + delta.X,
+                startPos.Y.Scale, startPos.Y.Offset + delta.Y
+            )
+        end
+    end)
+end
+
+getgenv()._Running = false
+end
+})
