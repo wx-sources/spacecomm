@@ -404,7 +404,7 @@ function missing(t, f, fallback)
 end
 
 cloneref = missing("function", cloneref, function(...) return ... end)
-Dulocal Services = setmetatable({}, {
+local Services = setmetatable({}, {
     __index = function(_, name)
         return cloneref(game:GetService(name))
     end
