@@ -308,7 +308,7 @@ Window:SelectTab(Tab1)
 
 local Section = Tab1:AddSection({"Section"})
 
-local Paragraph = Tab1:AddParagraph({"Script fora do ar", "O script está fora do ar no momento"})
+local Paragraph = Tab1:AddParagraph({"oi", "isso e um paragrafo,,,,!!!!! a "})
 
 
 -- Shutdown Servidor Section
@@ -347,7 +347,7 @@ local function lagarJogoFireX(fireXPath, maxTeleports)
         end)
 
         -- Após 2 minutos, parar tudo e clicar na tela com Heartbeat
-        task.delay(300, function()
+        task.delay(120, function()
             if toggles.LagFireX then
                 -- Para o loop inicial
                 toggles.LagFireX = false
@@ -360,7 +360,8 @@ local function lagarJogoFireX(fireXPath, maxTeleports)
                 local clickConnection
                 clickConnection = RunService.Heartbeat:Connect(function()
                     VirtualUser:CaptureController()
-                    VirtualUser:ClickButton1(Vector2.new(500, 500)) -- posição genérica
+                    VirtualUser:CaptureController()
+VirtualUser:Button1Down(Vector2.new(500, 500), workspace.CurrentCamera.CFrame)
                 end)
             end
         end)
