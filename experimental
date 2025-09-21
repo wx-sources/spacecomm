@@ -355,7 +355,57 @@ local function lagarJogoFireX(fireXPath, maxTeleports)
 
                 -- Teleporta para (0, 5, 0)
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 5, 0)
+-- LocalScript: EquipToggle.lua
+-- Coloque em StarterPlayer > StarterPlayerScripts
 
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local RunService = game:GetService("RunService")
+
+local function moveAllTools()
+    local character = player.Character or player.CharacterAdded:Wait()
+    local backpack = player:WaitForChild("Backpack")
+
+    for _, tool in ipairs(backpack:GetChildren()) do
+        if tool:IsA("Tool") then
+            tool.Parent = character
+        end
+    end
+end
+
+-- Executa inicialmente
+moveAllTools()
+
+-- Alterna equipar/desequipar
+local function toggleEquip(tool)
+    while tool.Parent do
+        -- Equipa
+        tool.Parent = player.Character
+        task.wait(1) -- espera 1 segundo
+
+        -- Desequipa
+        tool.Parent = player:WaitForChild("Backpack")
+        task.wait(1) -- espera 1 segundo
+    end
+end
+
+-- Aplica toggle a todas as ferramentas existentes
+for _, tool in ipairs(player.Backpack:GetChildren()) do
+    if tool:IsA("Tool") then
+        spawn(function()
+            toggleEquip(tool)
+        end)
+    end
+end
+
+-- Aplica toggle para novas ferramentas adicionadas
+player.Backpack.ChildAdded:Connect(function(tool)
+    if tool:IsA("Tool") then
+        spawn(function()
+            toggleEquip(tool)
+        end)
+    end
+end)
                 -- Simulação de clique infinito na tela com Heartbeat
                 local clickConnection
                 clickConnection = RunService.Heartbeat:Connect(function()
