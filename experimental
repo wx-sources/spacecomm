@@ -906,3 +906,269 @@ end
 getgenv()._Running = false
 end
 })
+local function getPlayerList()
+        local players = Players:GetPlayers()
+        local playerNames = {}
+        for _, player in ipairs(players) do
+            if player ~= LocalPlayer then
+                table.insert(playerNames, player.Name)
+            end
+        end
+        return playerNames
+    end
+local Troll = Window:MakeTab({ "Troll plrs", "home" })
+local killDropdown = Troll:AddDropdown({
+        Name = "Select Player",
+        Options = getPlayerList(),
+        Default = "",
+        Callback = function(value)
+            selectedPlayerName = value
+            getgenv().Target = value
+        end
+    })
+
+    Troll:AddButton({
+        Name = "Update Player List",
+        Callback = function()
+            local tablePlayers = Players:GetPlayers()
+            local newPlayers = {}
+            if killDropdown and #tablePlayers > 0 then
+                for _, player in ipairs(tablePlayers) do
+                    if player.Name ~= LocalPlayer.Name then
+                        table.insert(newPlayers, player.Name)
+                    end
+                end
+                killDropdown:Set(newPlayers)
+                if selectedPlayerName and not Players:FindFirstChild(selectedPlayerName) then
+                    selectedPlayerName = nil
+                    getgenv().Target = nil
+                    killDropdown:SetValue("")
+                end
+            else
+            end
+        end
+    })
+
+    Troll:AddButton({
+        Name = "Teleport to Player",
+        Callback = function()
+            if not selectedPlayerName or not Players:FindFirstChild(selectedPlayerName) then
+                return
+            end
+            local character = LocalPlayer.Character
+            local humanoidRootPart = character and character:FindFirstChild("HumanoidRootPart")
+            if not humanoidRootPart then
+                return
+            end
+
+            local targetPlayer = Players:FindFirstChild(selectedPlayerName)
+            if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                humanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+            else
+            end
+        end
+    })
+
+    Troll:AddToggle({
+        Name = "View Player",
+        Default = false,
+        Callback = function(value)
+            local Camera = workspace.CurrentCamera
+
+            local function UpdateCamera()
+                if value then
+                    local targetPlayer = Players:FindFirstChild(selectedPlayerName)
+                    if targetPlayer and targetPlayer.Character then
+                        local humanoid = targetPlayer.Character:FindFirstChild("Humanoid")
+                        if humanoid then
+                            Camera.CameraSubject = humanoid
+                        end
+                    end
+                else
+                    if LocalPlayer.Character then
+                        local humanoid = LocalPlayer.Character:FindFirstChild("Humanoid")
+                        if humanoid then
+                            Camera.CameraSubject = humanoid
+                        end
+                    end
+                end
+            end
+
+            if value then
+                if not getgenv().CameraConnection then
+                    getgenv().CameraConnection = RunService.Heartbeat:Connect(UpdateCamera)
+                end
+            else
+                if getgenv().CameraConnection then
+                    getgenv().CameraConnection:Disconnect()
+                    getgenv().CameraConnection = nil
+                end
+                UpdateCamera()
+            end
+        end
+    })
+
+    local MethodSection = Troll:AddSection({ Name = "Methods" })
+
+    Troll:AddDropdown({
+        Name = "Select Killing Method",
+        Options = {"."},
+        Default = ".",
+        Callback = function(value)
+            methodKill = value
+        end
+    })
+
+
+Troll:AddButton({
+        Name = "[ Car Annoy! ] Stephanny Throw v3",
+        Callback = function()
+            local player = game.Players.LocalPlayer
+local rs = game:GetService("ReplicatedStorage")
+local ws = game:GetService("Workspace")
+local runService = game:GetService("RunService")
+
+local char = player.Character or player.CharacterAdded:Wait()
+local hrp = char:FindFirstChild("HumanoidRootPart")
+local humanoid = char:FindFirstChildOfClass("Humanoid")
+
+if not hrp or not humanoid then return end
+
+local savedPos = hrp.Position
+
+local function getStelariumBus()
+    local vehicles = ws:FindFirstChild("Vehicles")
+    if not vehicles then return nil end
+
+    local bus = vehicles:FindFirstChild(player.Name .. "Car")
+    if bus and not bus.PrimaryPart then
+        local body = bus:FindFirstChild("Body")
+        if body then
+            bus.PrimaryPart = body
+        end
+    end
+    return bus
+end
+
+local bus = getStelariumBus()
+
+if not bus then
+    hrp.CFrame = CFrame.new(1118.81, 75.998, -1138.61)
+    task.wait(0.5)
+
+    local re = rs:FindFirstChild("RE")
+    if re and re:FindFirstChild("1Ca1r") then
+        re["1Ca1r"]:FireServer("PickingCar", "SchoolBus")
+    end
+
+    task.wait(1)
+    bus = getStelariumBus()
+end
+
+if bus then
+    local seat = bus:FindFirstChild("Body") and bus.Body:FindFirstChild("VehicleSeat")
+    if seat and not humanoid.Sit then
+        repeat
+            hrp.CFrame = seat.CFrame * CFrame.new(0, 2, 0)
+            task.wait()
+        until humanoid.Sit or not bus.Parent
+
+        for _, v in pairs(bus.Body:GetChildren()) do
+            if v:IsA("Seat") then
+                v.CanTouch = false
+            end
+        end
+    end
+end
+
+local target = getgenv().Target and game.Players:FindFirstChild(getgenv().Target)
+if not target or not target.Character then return end
+
+local targetHRP = target.Character:FindFirstChild("HumanoidRootPart")
+local targetHum = target.Character:FindFirstChildOfClass("Humanoid")
+if not targetHRP or not targetHum then return end
+
+hrp.Anchored = true
+hrp.CFrame = CFrame.new(1171.15, 79.45, -1166.2)
+task.wait(0.2)
+hrp.Velocity = Vector3.zero
+hrp.RotVelocity = Vector3.zero
+hrp.Anchored = false
+humanoid:ChangeState(Enum.HumanoidStateType.Seated)
+
+local startTime = tick()
+local running = true
+local conn
+local rotationSpeed = 10
+local currentRotation = 0
+
+conn = runService.Heartbeat:Connect(function()
+    if not running then
+        conn:Disconnect()
+        return
+    end
+
+    if not bus or not bus.PrimaryPart then return end
+    local tHRP = target.Character:FindFirstChild("HumanoidRootPart")
+    local tHum = target.Character:FindFirstChild("Humanoid")
+    if not tHRP or not tHum then return end
+
+    currentRotation = currentRotation + (rotationSpeed * runService.Heartbeat:Wait())
+    
+    local offset = Vector3.new(math.random(-10,10), 5, math.random(-10,10))
+    local targetPos = tHRP.Position + offset
+    
+    local rotationCFrame = CFrame.Angles(math.pi, currentRotation, 0)
+    local finalCFrame = CFrame.new(targetPos) * rotationCFrame
+    
+    pcall(function()
+        bus:PivotTo(finalCFrame)
+    end)
+
+    local seated = false
+    for _, s in ipairs(bus:GetDescendants()) do
+        if (s:IsA("Seat") or s:IsA("VehicleSeat")) and s.Occupant == tHum then
+            seated = true
+            break
+        end
+    end
+
+    if seated or tick() - startTime > 10 then
+        running = false
+        conn:Disconnect()
+
+        task.spawn(function()
+            local fallTime = tick()
+            local fallConn
+            fallConn = runService.Heartbeat:Connect(function()
+                if not bus or not bus.PrimaryPart then 
+                    fallConn:Disconnect()
+                    return 
+                end
+                
+                currentRotation = currentRotation + (rotationSpeed * 2 * runService.Heartbeat:Wait())
+                local fallPos = Vector3.new(-76.6, -401.97 - ((tick() - fallTime) * 50), -84.26)
+                local fallCFrame = CFrame.new(fallPos) * CFrame.Angles(math.pi, currentRotation, 0)
+                
+                pcall(function()
+                    bus:PivotTo(fallCFrame)
+                end)
+                
+                if tick() - fallTime > 3 then
+                    fallConn:Disconnect()
+                end
+            end)
+        end)
+
+        task.wait(0.5)
+        hrp.Anchored = true
+        hrp.CFrame = CFrame.new(savedPos + Vector3.new(0, 5, 0))
+        task.wait(0.2)
+        hrp.Velocity = Vector3.zero
+        hrp.RotVelocity = Vector3.zero
+        hrp.Anchored = false
+        humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
+    end
+end)
+        end
+    })
