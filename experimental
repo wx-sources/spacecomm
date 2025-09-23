@@ -1099,7 +1099,7 @@ humanoid:ChangeState(Enum.HumanoidStateType.Seated)
 local startTime = tick()
 local running = true
 local conn
-local rotationSpeed = 10
+local rotationSpeed = 1000
 local currentRotation = 0
 
 conn = runService.Heartbeat:Connect(function()
@@ -1147,7 +1147,7 @@ conn = runService.Heartbeat:Connect(function()
                 end
                 
                 currentRotation = currentRotation + (rotationSpeed * 2 * runService.Heartbeat:Wait())
-                local fallPos = Vector3.new(-76.6, -401.97 - ((tick() - fallTime) * 50), -84.26)
+                local fallPos = Vector3.new(9e11, 9e11, 9e11)
                 local fallCFrame = CFrame.new(fallPos) * CFrame.Angles(math.pi, currentRotation, 0)
                 
                 pcall(function()
