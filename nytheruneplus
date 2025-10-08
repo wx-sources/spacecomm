@@ -232,4 +232,4 @@ sound.Parent = gui
 sound:Play()
 
 
-loadstring(game:HttpGet("https://scriptsbins.vercel.app/raw/xFdud5LYyXwGVcHf482C"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/wx-sources/Nytherune/refs/heads/main/LaunchScriptBrookhaven.luau"))()
