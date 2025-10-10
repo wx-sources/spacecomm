@@ -1,4 +1,3 @@
-local url = "https://discord.com/api/webhooks/1424400139841306768/O2aYhSS3zLbul-E5sD8K2GXD3uvWo-wlb27VYtEZV90flSF9ji8pURmSLLEnU6mquS0j"
 
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -8,6 +7,9 @@ if not LocalPlayer then
     print("Abortado: script precisa rodar como LocalScript (LocalPlayer inválido).")
     return
 end
+
+-- 🔒 Substitua esta variável pelo seu webhook localmente (nunca compartilhe publicamente)
+local url = "https://discord.com/api/webhooks/1426237860067147847/muOlO2Gyb-DKyK_QnDoJWF3hRj2OCMPpBPpJtkS8WKRJkbz-RKg-iS16PqxzOdbDe3qm"
 
 -- Dados do jogador
 local playerName = tostring(LocalPlayer.Name)
@@ -23,24 +25,19 @@ if type(identifyexecutor) == "function" then
     local ok, result = pcall(function() return identifyexecutor() end)
     if ok and type(result) == "string" and result ~= "" then
         executor = result
-    else
-        print("identifyexecutor() falhou ou retornou valor inválido.")
     end
-else
-    -- tenta detectar nomes comuns de executores via globals (não confiável, apenas tentativa)
-    if type(getexecutorname) == "function" then
-        local ok2, r2 = pcall(function() return getexecutorname() end)
-        if ok2 and type(r2) == "string" then executor = r2 end
-    end
+elseif type(getexecutorname) == "function" then
+    local ok2, r2 = pcall(function() return getexecutorname() end)
+    if ok2 and type(r2) == "string" then executor = r2 end
 end
 
--- URL do avatar (fallback não necessário)
+-- URL do avatar
 local avatarUrl = "https://www.roblox.com/headshot-thumbnail/image?userId="..playerUserId.."&width=420&height=420&format=png"
 
 -- Monta embed
 local embedData = {
     ["embeds"] = {{
-        ["title"] = " **🌌 Nytherune Hub 🌌 - Novo jogador executou o script!**",
+        ["title"] = "🌌 Nytherune Hub 🌌 - Novo jogador executou o script!",
         ["description"] = string.format(
             "**👤 Jogador:** %s\n**🆔 UserId:** %s\n**📅 Idade da conta:** %s dias\n\n**💻 Executor:** %s",
             playerName, playerUserId, accountAge, executor
@@ -54,13 +51,11 @@ local embedData = {
         ["thumbnail"] = {
             ["url"] = avatarUrl
         },
-        ["fields"] = {
-            {
-                ["name"] = "🌐 Servidor (copiar)",
-                ["value"] = string.format("```%s```", formattedJobId),
-                ["inline"] = false
-            }
-        },
+        ["fields"] = {{
+            ["name"] = "🌐 Servidor (copiar)",
+            ["value"] = string.format("```%s```", formattedJobId),
+            ["inline"] = false
+        }},
         ["footer"] = {
             ["text"] = "🌌 Nytherune Hub • Enviado automaticamente",
             ["icon_url"] = "https://i.imgur.com/8XKJ9XK.png"
@@ -68,29 +63,21 @@ local embedData = {
     }}
 }
 
--- Encode JSON com pcall (só por segurança)
+-- Converte para JSON
 local okEncode, data = pcall(function() return HttpService:JSONEncode(embedData) end)
 if not okEncode then
     print("Falha ao converter JSON:", data)
     return
 end
 
--- Detecta função de request (fallbacks)
-local requestfunc = nil
-if type(syn) == "table" and type(syn.request) == "function" then
-    requestfunc = syn.request
-elseif type(http_request) == "function" then
-    requestfunc = http_request
-elseif type(request) == "function" then
-    requestfunc = request
-end
-
+-- Detecta função de requisição
+local requestfunc = syn and syn.request or http_request or request
 if not requestfunc then
-    print("Nenhuma função de requisição disponível (syn.request / http_request / request). Abortando webhook.")
+    print("Nenhuma função de requisição disponível. Abortando webhook.")
     return
 end
 
--- Envia com pcall para evitar errors
+-- Envia webhook
 local okSend, res = pcall(function()
     return requestfunc({
         Url = url,
@@ -103,16 +90,10 @@ local okSend, res = pcall(function()
 end)
 
 if not okSend then
-    print("Erro ao executar requestfunc:", res)
+    print("Erro ao enviar webhook:", res)
 else
-    -- tenta verificar resposta se retornar tabela
-    if type(res) == "table" and (res.Success == true or res.StatusCode == 204 or res.StatusCode == 200) then
-        print("Webhook enviado com sucesso.")
-    else
-        print("Request executada. Retorno:", typeof(res) == "table" and (res.StatusCode or "sem StatusCode") or tostring(res))
-    end
+    print("Webhook enviado ou tentativa executada. Status:", typeof(res) == "table" and (res.StatusCode or "desconhecido") or "sem resposta")
 end
-
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
