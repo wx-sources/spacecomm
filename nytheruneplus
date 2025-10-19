@@ -646,7 +646,7 @@ loadstring(game:HttpGet("https://scriptsbinsauth.vercel.app/api/scripts/61a69984
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/wx-sources/Nytherune/refs/heads/main/LaunchScriptBrookhaven.luau"))()
 
-elseif game.placeId == 79546208627805 then
+elseif game.placeId == 126509999114328 then
 loadstring(game:HttpGet("https://scriptsbinsauth.vercel.app/api/scripts/3130fd4f-0a1c-443a-a30f-7f2c74cdb7a3/raw"))()
 else
 game.Players.LocalPlayer:Kick("This game is not supported.")
