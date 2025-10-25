@@ -654,7 +654,7 @@ local maconha = 4924922222
 if game.PlaceId == maconha then
     
     loadstring(game:HttpGet("https://scriptsbinsauth.vercel.app/api/scripts/61a69984-9e07-44cc-bf9f-b6720fcee96c/raw"))()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/wx-sources/Nytherune/refs/heads/main/LaunchScriptBrookhaven.luau"))()
+   loadstring(game:HttpGet("https://scriptsbinsauth.vercel.app/api/scripts/0d55a86b-821d-4e5f-b8cf-df9680b18986/raw"))()
 else
     
     if game.GameId == noites99 then
