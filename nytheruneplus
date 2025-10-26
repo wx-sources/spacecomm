@@ -654,7 +654,7 @@ local maconha = 4924922222
 if game.PlaceId == maconha then
     
     loadstring(game:HttpGet("https://scriptsbinsauth.vercel.app/api/scripts/61a69984-9e07-44cc-bf9f-b6720fcee96c/raw"))()
-   loadstring(game:HttpGet("https://scriptsbinsauth.vercel.app/api/scripts/0d55a86b-821d-4e5f-b8cf-df9680b18986/raw"))()
+   loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/ce568037e81e3e62e641e25995515ad5405b2ba66ee19d6759bf0c2454c036bf/download"))()
 else
     
     if game.GameId == noites99 then
