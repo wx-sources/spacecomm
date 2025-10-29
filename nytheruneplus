@@ -685,7 +685,8 @@ if game.PlaceId == maconha then
  else   
     if game.GameId == noites99 then
         print("tá Lgl.")
-loadstring(game:HttpGet("https://scriptsbinsauth.vercel.app/api/scripts/3130fd4f-0a1c-443a-a30f-7f2c74cdb7a3/raw"))()
+loadstring(game:HttpGet("https://scriptsbinsauth.pages.dev/api/scripts/5e432297-a5b4-4c60-949e-9d7a7dbd46b9/raw"))()
+-- 99 noites na floresta
     else
         
         game.Players.LocalPlayer:Kick("This game is not supported.")
