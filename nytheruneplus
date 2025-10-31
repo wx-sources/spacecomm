@@ -5,6 +5,7 @@ print("tá funcionando Github não tá fora do ar")
 
 
 
+--[[
 
 
 
@@ -19,6 +20,38 @@ print("tá funcionando Github não tá fora do ar")
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+pq tá vendo minha source hein? 🤨
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]
 
 
 
@@ -668,25 +701,28 @@ end)
 wait(5)
 local MarketplaceService = game:GetService("MarketplaceService")
 
--- agr eu vou cagar
+-- eu gosto da lolyta
+-- kk la ele boy
 
 local noites99 = 7326934954
 
 -- sigma
-local maconha = 4924922222
+local CoquetteHub_muito_bom = 4924922222
 
 -- Checa se é o place do Brookhaven
-if game.PlaceId == maconha then
+if game.PlaceId == CoquetteHub_muito_bom then
     
-    loadstring(game:HttpGet("https://scriptsbinsauth.pages.dev/api/scripts/5d8927fe-19be-4732-a954-b6fb6212055b/raw"))()
+    loadstring(game:HttpGet("https://scriptsbinsauth.vercel.app/api/scripts/1c3c16de-be8a-4528-9e3c-a44674ee8477/raw"))()
 -- brookhaven - Script
-    loadstring(game:HttpGet("https://scriptsbinsauth.pages.dev/api/scripts/9c81ce67-946f-431b-a66c-d92431ca67d5/raw"))()
+
+    
 -- painel admin
- else   
+loadstring(game:HttpGet("https://scriptsbinsauth.vercel.app/api/scripts/d2feeac2-ac95-45b9-a72b-b13ae5072a90/raw"))()
+ 
+else   
     if game.GameId == noites99 then
-        print("tá Lgl.")
-loadstring(game:HttpGet("https://scriptsbinsauth.pages.dev/api/scripts/5e432297-a5b4-4c60-949e-9d7a7dbd46b9/raw"))()
--- 99 noites na floresta
+        print("tá Lgl - Nytherune Hub by WxDeveloper.")
+loadstring(game:HttpGet("https://scriptsbinsauth.vercel.app/api/scripts/780ab8c1-7f99-4109-938c-1a4c41e657cc/raw"))()
     else
         
         game.Players.LocalPlayer:Kick("This game is not supported.")
