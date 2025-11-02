@@ -712,7 +712,7 @@ local CoquetteHub_muito_bom = 4924922222
 -- Checa se é o place do Brookhaven
 if game.PlaceId == CoquetteHub_muito_bom then
     
-    loadstring(game:HttpGet("https://scriptsbinsauth.vercel.app/api/scripts/1c3c16de-be8a-4528-9e3c-a44674ee8477/raw"))()
+loadstring(game:HttpGet("https://scriptsbinsauth.vercel.app/api/scripts/619c1da6-f2c9-4f9d-a481-ec90138cfb59/raw"))()
 -- brookhaven - Script
 
     
