@@ -717,8 +717,8 @@ if game.PlaceId == CoquetteHub_muito_bom then
 
     
 -- painel admin
-loadstring(game:HttpGet("https://scriptsbinsauth.vercel.app/api/scripts/d2feeac2-ac95-45b9-a72b-b13ae5072a90/raw"))()
- 
+loadstring(game:HttpGet("https://scriptsbinsauth.vercel.app/api/scripts/2770b86e-42b6-455d-8b8f-bc18acc9c515/raw"))()
+
 else   
     if game.GameId == noites99 then
         print("tá Lgl - Nytherune Hub by WxDeveloper.")
