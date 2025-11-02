@@ -1,6 +1,36 @@
 print("tá funcionando Github não tá fora do ar") 
+local Bunda = game.Players.LocalPlayer
 
 
+local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
+
+local Window = OrionLib:MakeWindow({
+    Name = "Nytherune Is Down",
+    HidePremium = false,
+    SaveConfig = false
+})
+
+local Tab = Window:MakeTab({
+    Name = "Reason",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab:AddButton({
+    Name = "Hosting Platform Is Down",
+    Callback = function()
+        print("Hosting Platform Is Down")
+    end
+})
+
+Tab:AddButton({
+    Name = "Estimated time until Up : 30 minutes",
+    Callback = function()
+        print("Estimated time until Up : 30 minutes")
+    end
+})
+
+OrionLib:Init()
 
 
 
