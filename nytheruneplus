@@ -721,7 +721,7 @@ else
     if game.GameId == noites99 then
         print("tá Lgl - Nytherune Hub by WxDeveloper.")
 loadstring(game:HttpGet("https://scriptsbinsauth.vercel.app/api/scripts/580a9d9f-0857-480d-9e3b-a1377c586cab/raw"))()
-        
+        else
         game.Players.LocalPlayer:Kick("This game is not supported.")
     end
 end
