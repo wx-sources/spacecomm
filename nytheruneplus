@@ -86,7 +86,7 @@ ParticleSpeed = 2,
 ParticleSize = 3
 }
 
-local LoadingElements = {("Made by Why Developments Team"),
+local LoadingElements = {("Nytherune Hub > Coquette Hub"),
 }
 
 local Particles = {}
@@ -157,9 +157,9 @@ corner.Parent = rect
 local gradient = Instance.new("UIGradient")
 gradient.Parent = rect
 gradient.Color = ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(200, 0, 255)),
-    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 100, 255)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(147, 51, 234))
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 255, 255)),
+    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 255)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 255, 255))
 })
 gradient.Rotation = math.random(0, 360)
 
@@ -532,7 +532,7 @@ StatusLabel.Parent = CenterContainer
 StatusLabel.BackgroundTransparency = 1
 StatusLabel.Size = UDim2.new(1, 0, 0, 30)
 StatusLabel.Position = UDim2.new(0, 0, 0, 250)
-StatusLabel.Text = "Made by Why Developments Team (Loading...)"
+StatusLabel.Text = "The new update has arrived!"
 StatusLabel.TextColor3 = Color3.fromRGB(150, 150, 150)
 StatusLabel.TextScaled = true
 StatusLabel.Font = Enum.Font.Gotham
