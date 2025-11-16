@@ -77,10 +77,10 @@ local PlayerGui = Player:WaitForChild("PlayerGui")
 local LoadingConfig = {
 Duration = 8,
 FadeOutTime = 1.5,
-BarColor = Color3.fromRGB(200, 0, 255),
-BarGlow = Color3.fromRGB(255, 100, 255),
-BackgroundColor = Color3.fromRGB(10, 0, 20), 
-TextColor = Color3.fromRGB(255, 200, 255),
+BarColor = Color3.fromRGB(0, 255, 255),
+BarGlow = Color3.fromRGB(0, 255, 255),
+BackgroundColor = Color3.fromRGB(0, 255, 255), 
+TextColor = Color3.fromRGB(0, 255, 255),
 ParticleCount = 150,
 ParticleSpeed = 2,
 ParticleSize = 3
@@ -111,7 +111,7 @@ local gradient = Instance.new("UIGradient")
 gradient.Parent = star
 gradient.Color = ColorSequence.new({
     ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 255, 255)),
-    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(147, 51, 234)),
+    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 255)),
     ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
 })
 
@@ -146,7 +146,7 @@ rect.Name = "RectangleParticle"
 rect.Parent = parent
 rect.Size = UDim2.new(0, math.random(8, 25), 0, math.random(15, 50)) 
 rect.Position = UDim2.new(0, x, 0, -50) 
-rect.BackgroundColor3 = Color3.fromRGB(200, 0, 255) 
+rect.BackgroundColor3 = Color3.fromRGB(0, 255, 255) 
 rect.BorderSizePixel = 0
 rect.ZIndex = 8
 rect.BackgroundTransparency = math.random(20, 60) / 100 
@@ -253,9 +253,9 @@ bgFrame.ZIndex = 1
 local gradient1 = Instance.new("UIGradient")
 gradient1.Parent = bgFrame
 gradient1.Color = ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(5, 5, 20)),
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 255, 255)),
     ColorSequenceKeypoint.new(0.3, Color3.fromRGB(0, 0, 0)),
-    ColorSequenceKeypoint.new(0.7, Color3.fromRGB(10, 0, 15)),
+    ColorSequenceKeypoint.new(0.7, Color3.fromRGB(0, 255, 255)),
     ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0))
 })
 gradient1.Rotation = 45
@@ -281,9 +281,9 @@ overlay.BackgroundTransparency = 0.3
 local overlayGradient = Instance.new("UIGradient")
 overlayGradient.Parent = overlay
 overlayGradient.Color = ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(20, 0, 30)),
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 255, 255)),
     ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 0, 0)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(30, 0, 20))
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 255, 255))
 })
 overlayGradient.Rotation = -45
 
@@ -389,7 +389,7 @@ table.insert(AnimationConnections, iconPulse)
 
 local uiStroke = Instance.new("UIStroke")
 uiStroke.Parent = Icon
-uiStroke.Color = Color3.fromRGB(200, 0, 255)
+uiStroke.Color = Color3.fromRGB(0, 255, 255)
 uiStroke.Thickness = 3
 uiStroke.Transparency = 0.3
 
@@ -415,16 +415,16 @@ TitleLabel.ZIndex = 12
 
 local titleStroke = Instance.new("UIStroke")
 titleStroke.Parent = TitleLabel
-titleStroke.Color = Color3.fromRGB(147, 51, 234)
+titleStroke.Color = Color3.fromRGB(0, 255, 255)
 titleStroke.Thickness = 2
 titleStroke.Transparency = 0.5
 
 local TitleGradient = Instance.new("UIGradient")
 TitleGradient.Parent = TitleLabel
 TitleGradient.Color = ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(147, 51, 234)),
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 255, 255)),
     ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 255, 255)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(147, 51, 234))
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 255, 255))
 })
 
 local titleAnimation = TweenService:Create(
