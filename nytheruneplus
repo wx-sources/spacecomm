@@ -680,34 +680,6 @@ sound.Looped = false       -- true se quiser loop
 sound.PlaybackSpeed = 1    -- velocidade da reprodução
 sound.Parent = SoundService
 
--- Simple Loading UI for Roblox (20s duration, with Skip button) -- Title: JUSTICE FOR NYTHERUNE -- Description message included
-
-local ScreenGui = Instance.new("ScreenGui") ScreenGui.IgnoreGuiInset = true ScreenGui.ResetOnSpawn = false ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
-local Background = Instance.new("Frame") Background.Size = UDim2.new(1, 0, 1, 0) Background.BackgroundColor3 = Color3.fromRGB(10, 10, 10) Background.Parent = ScreenGui
-
-local Title = Instance.new("TextLabel") Title.Size = UDim2.new(1, 0, 0.15, 0) Title.Position = UDim2.new(0, 0, 0.05, 0) Title.BackgroundTransparency = 1 Title.Text = "JUSTICE FOR NYTHERUNE" Title.TextColor3 = Color3.fromRGB(255, 0, 0) Title.TextScaled = true Title.Font = Enum.Font.GothamBold Title.Parent = Background
-
-local Description = Instance.new("TextLabel") Description.Size = UDim2.new(0.85, 0, 0.3, 0) Description.Position = UDim2.new(0.075, 0, 0.22, 0) Description.BackgroundTransparency = 1 Description.TextWrapped = true Description.Text = "The owner of Nytherune, which is me, had my data leaked and my server hacked. I changed the loading screen because I want to ask for your help. Please post videos saying 'JUSTICE FOR NYTHERUNE' and ignore false accusations about Nytherune. This is not the end; I will make another script in the future." Description.TextColor3 = Color3.fromRGB(255, 255, 255) Description.TextScaled = true Description.Font = Enum.Font.Gotham Description.Parent = Background
-
--- Loading bar (no percentage) local BarBackground = Instance.new("Frame") BarBackground.Size = UDim2.new(0.8, 0, 0.03, 0) BarBackground.Position = UDim2.new(0.1, 0, 0.6, 0) BarBackground.BackgroundColor3 = Color3.fromRGB(40, 40, 40) BarBackground.Parent = Background BarBackground.BorderSizePixel = 0
-
-local BarFill = Instance.new("Frame") BarFill.Size = UDim2.new(0, 0, 1, 0) BarFill.BackgroundColor3 = Color3.fromRGB(255, 0, 0) BarFill.Parent = BarBackground BarFill.BorderSizePixel = 0
-
--- Skip button local SkipButton = Instance.new("TextButton") SkipButton.Size = UDim2.new(0.15, 0, 0.07, 0) SkipButton.Position = UDim2.new(0.82, 0, 0.88, 0) SkipButton.Text = "Skip" SkipButton.Font = Enum.Font.GothamBold SkipButton.TextScaled = true SkipButton.BackgroundColor3 = Color3.fromRGB(200, 0, 0) SkipButton.TextColor3 = Color3.fromRGB(255, 255, 255) SkipButton.Parent = Background SkipButton.BorderSizePixel = 0
-
--- Loading animation (20 seconds) local duration = 20 local startTime = tick()
-
-local connection connection = game:GetService("RunService").RenderStepped:Connect(function() local elapsed = tick() - startTime local progress = math.clamp(elapsed / duration, 0, 1) BarFill.Size = UDim2.new(progress, 0, 1, 0)
-
-if progress >= 1 then
-    connection:Disconnect()
-    ScreenGui:Destroy()
-end
-
-end)
-
--- Skip logic SkipButton.MouseButton1Click:Connect(function() ScreenGui:Destroy() end)
 
 -- opcional: destruir o objeto quando terminar (evita acúmulo)
 sound.Ended:Connect(function()
