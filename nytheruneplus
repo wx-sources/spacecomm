@@ -723,8 +723,12 @@ end)
 task.spawn(function()
 	print("t")
 end)
-wait(5)
+wait(20)
+ScreenGui:Destroy()
 local MarketplaceService = game:GetService("MarketplaceService")
+
+
+
 
 -- eu gosto da lolyta
 -- kk la ele boy
